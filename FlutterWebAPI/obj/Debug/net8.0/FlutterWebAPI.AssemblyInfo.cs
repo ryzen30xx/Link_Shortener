@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FlutterWebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc1a86cc1fad77746272f0e2574788e5c01a7d17")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c9ec0a3528f27d4c185526c4c4dfeb8aca9f942")]
 [assembly: System.Reflection.AssemblyProductAttribute("FlutterWebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FlutterWebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
