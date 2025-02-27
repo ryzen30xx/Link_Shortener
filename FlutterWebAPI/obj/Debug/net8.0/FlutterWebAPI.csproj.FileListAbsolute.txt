@@ -279,3 +279,5 @@ C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\FlutterWebAPI\obj\Debug\net8.
 C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\FlutterWebAPI\obj\Debug\net8.0\FlutterWebAPI.pdb
 C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\FlutterWebAPI\obj\Debug\net8.0\FlutterWebAPI.genruntimeconfig.cache
 C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\FlutterWebAPI\obj\Debug\net8.0\ref\FlutterWebAPI.dll
+C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\FlutterWebAPI\obj\Debug\net8.0\FlutterWebAPI.RazorAssemblyInfo.cache
+C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\FlutterWebAPI\obj\Debug\net8.0\FlutterWebAPI.RazorAssemblyInfo.cs

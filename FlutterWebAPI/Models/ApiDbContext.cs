@@ -10,5 +10,6 @@ namespace FlutterWebAPI.Models
 
         }
         public DbSet<Users> Users { get; set; }
+        public DbSet<urls> urls { get; set; }
     }
 }
