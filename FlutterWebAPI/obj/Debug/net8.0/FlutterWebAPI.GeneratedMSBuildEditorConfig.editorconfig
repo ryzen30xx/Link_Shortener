@@ -17,37 +17,37 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FlutterWebAPI
 build_property.RootNamespace = FlutterWebAPI
-build_property.ProjectDir = C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\FlutterWebAPI\
+build_property.ProjectDir = /home/ryzen30xx/Desktop/Link_Shortener/FlutterWebAPI/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\FlutterWebAPI
+build_property.MSBuildProjectDirectory = /home/ryzen30xx/Desktop/Link_Shortener/FlutterWebAPI
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/ryzen30xx/Documents/GitHub/Link_Shortener/FlutterWebAPI/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/home/ryzen30xx/Desktop/Link_Shortener/FlutterWebAPI/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ryzen30xx/Documents/GitHub/Link_Shortener/FlutterWebAPI/Views/urls/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXJsc1xDcmVhdGUuY3NodG1s
+[/home/ryzen30xx/Desktop/Link_Shortener/FlutterWebAPI/Views/urls/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvdXJscy9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ryzen30xx/Documents/GitHub/Link_Shortener/FlutterWebAPI/Views/urls/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXJsc1xEZWxldGUuY3NodG1s
+[/home/ryzen30xx/Desktop/Link_Shortener/FlutterWebAPI/Views/urls/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvdXJscy9EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ryzen30xx/Documents/GitHub/Link_Shortener/FlutterWebAPI/Views/urls/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXJsc1xEZXRhaWxzLmNzaHRtbA==
+[/home/ryzen30xx/Desktop/Link_Shortener/FlutterWebAPI/Views/urls/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvdXJscy9EZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ryzen30xx/Documents/GitHub/Link_Shortener/FlutterWebAPI/Views/urls/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXJsc1xFZGl0LmNzaHRtbA==
+[/home/ryzen30xx/Desktop/Link_Shortener/FlutterWebAPI/Views/urls/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvdXJscy9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ryzen30xx/Documents/GitHub/Link_Shortener/FlutterWebAPI/Views/urls/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXJsc1xJbmRleC5jc2h0bWw=
+[/home/ryzen30xx/Desktop/Link_Shortener/FlutterWebAPI/Views/urls/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvdXJscy9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
