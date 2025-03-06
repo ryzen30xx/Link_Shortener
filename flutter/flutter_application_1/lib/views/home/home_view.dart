@@ -23,6 +23,7 @@ class HomeView extends StatelessWidget {
         title: Text('Link Shortener - The Original URL Shortener'),
         backgroundColor: const Color.fromARGB(255, 3, 110, 255),
       ),
+      backgroundColor: Colors.blue, // Set the background color to blue
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
