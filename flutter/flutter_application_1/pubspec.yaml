@@ -26,3 +26,4 @@ flutter:
 
 assets:
   - web/icons/Icon-192.png
+  - web/icons/Icon-512.png
