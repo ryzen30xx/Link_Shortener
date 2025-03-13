@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/navigation_bar/navigation_bar.dart';
 
 class SignInPage extends StatelessWidget {
-  // ignore: use_super_parameters
   const SignInPage({Key? key}) : super(key: key);
 
   @override
@@ -10,33 +9,45 @@ class SignInPage extends StatelessWidget {
     final bool isSmallScreen = MediaQuery.of(context).size.width < 600;
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Sign In'),
-          actions: [
-            Navbar(), // Add your navigation bar here
-          ],
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment(0.8, 1),
+            colors: <Color>[
+              Color(0xff1f005c),
+              Color(0xff5b0060),
+              Color(0xff870160),
+              Color(0xffac255e),
+              Color(0xffca485c),
+              Color(0xffe16b5c),
+              Color(0xfff39060),
+              Color(0xffffb56b),
+            ],
+            tileMode: TileMode.mirror,
+          ),
         ),
-        body: Center(
-            child: isSmallScreen
-                ? Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: const [
-                      _Logo(),
-                      _FormContent(),
-                    ],
-                  )
-                : Container(
-                    padding: const EdgeInsets.all(32.0),
-                    constraints: const BoxConstraints(maxWidth: 800),
-                    child: Row(
-                      children: const [
-                        Expanded(child: _Logo()),
-                        Expanded(
-                          child: Center(child: _FormContent()),
-                        ),
-                      ],
-                    ),
-                  )));
+        child: Center(
+          child: Container(
+            padding: const EdgeInsets.all(32.0),
+            constraints: const BoxConstraints(maxWidth: 400),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                _Logo(),
+                SizedBox(height: 20),
+                _FormContent(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 
@@ -45,25 +56,18 @@ class _Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isSmallScreen = MediaQuery.of(context).size.width < 600;
-
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        FlutterLogo(size: isSmallScreen ? 100 : 200),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
+        FlutterLogo(size: 100),
+        const Padding(
+          padding: EdgeInsets.all(16.0),
           child: Text(
             "Welcome to Link Shortener",
             textAlign: TextAlign.center,
-            style: isSmallScreen
-                ? Theme.of(context).textTheme.headlineSmall
-                : Theme.of(context)
-                    .textTheme
-                    .headlineMedium
-                    ?.copyWith(color: Colors.black),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-        )
+        ),
       ],
     );
   }
@@ -84,107 +88,72 @@ class __FormContentState extends State<_FormContent> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      constraints: const BoxConstraints(maxWidth: 300),
-      child: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextFormField(
-              validator: (value) {
-                // add email validation
-                if (value == null || value.isEmpty) {
-                  return 'Please enter some text';
-                }
-
-                bool emailValid = RegExp(
-                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                    .hasMatch(value);
-                if (!emailValid) {
-                  return 'Please enter a valid email';
-                }
-
-                return null;
-              },
-              decoration: const InputDecoration(
-                labelText: 'Email',
-                hintText: 'Enter your email',
-                prefixIcon: Icon(Icons.email_outlined),
-                border: OutlineInputBorder(),
+    return Form(
+      key: _formKey,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TextFormField(
+            validator: (value) {
+              if (value == null || value.isEmpty) return 'Please enter some text';
+              bool emailValid = RegExp(
+                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                  .hasMatch(value);
+              return emailValid ? null : 'Please enter a valid email';
+            },
+            decoration: const InputDecoration(
+              labelText: 'Email',
+              prefixIcon: Icon(Icons.email_outlined),
+              border: OutlineInputBorder(),
+            ),
+          ),
+          const SizedBox(height: 16),
+          TextFormField(
+            validator: (value) {
+              if (value == null || value.isEmpty) return 'Please enter some text';
+              return value.length < 6 ? 'Password must be at least 6 characters' : null;
+            },
+            obscureText: !_isPasswordVisible,
+            decoration: InputDecoration(
+              labelText: 'Password',
+              prefixIcon: const Icon(Icons.lock_outline_rounded),
+              border: const OutlineInputBorder(),
+              suffixIcon: IconButton(
+                icon: Icon(_isPasswordVisible ? Icons.visibility_off : Icons.visibility),
+                onPressed: () => setState(() => _isPasswordVisible = !_isPasswordVisible),
               ),
             ),
-            _gap(),
-            TextFormField(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter some text';
-                }
-
-                if (value.length < 6) {
-                  return 'Password must be at least 6 characters';
-                }
-                return null;
-              },
-              obscureText: !_isPasswordVisible,
-              decoration: InputDecoration(
-                  labelText: 'Password',
-                  hintText: 'Enter your password',
-                  prefixIcon: const Icon(Icons.lock_outline_rounded),
-                  border: const OutlineInputBorder(),
-                  suffixIcon: IconButton(
-                    icon: Icon(_isPasswordVisible
-                        ? Icons.visibility_off
-                        : Icons.visibility),
-                    onPressed: () {
-                      setState(() {
-                        _isPasswordVisible = !_isPasswordVisible;
-                      });
-                    },
-                  )),
-            ),
-            _gap(),
-            CheckboxListTile(
-              value: _rememberMe,
-              onChanged: (value) {
-                if (value == null) return;
-                setState(() {
-                  _rememberMe = value;
-                });
-              },
-              title: const Text('Remember me'),
-              controlAffinity: ListTileControlAffinity.leading,
-              dense: true,
-              contentPadding: const EdgeInsets.all(0),
-            ),
-            _gap(),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4)),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Text(
-                    'Sign in',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                onPressed: () {
-                  if (_formKey.currentState?.validate() ?? false) {
-                    /// do something
-                  }
-                },
+          ),
+          const SizedBox(height: 16),
+          CheckboxListTile(
+            value: _rememberMe,
+            onChanged: (value) => setState(() => _rememberMe = value!),
+            title: const Text('Remember me'),
+            controlAffinity: ListTileControlAffinity.leading,
+          ),
+          const SizedBox(height: 16),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
               ),
+              child: const Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  'Sign in',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+              onPressed: () {
+                if (_formKey.currentState?.validate() ?? false) {
+                  // Perform sign-in logic
+                }
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
-
-  Widget _gap() => const SizedBox(height: 16);
 }
