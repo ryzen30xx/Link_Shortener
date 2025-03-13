@@ -25,7 +25,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   final TextEditingController _urlController = TextEditingController();
   final TextEditingController _aliasController = TextEditingController();
-  String _selectedDomain = 'tinyurl.com';
+  String _selectedDomain = 'shortener.isharoverwhite.com';
   String? _shortenedUrl;
 
   void _shortenUrl() {
@@ -57,8 +57,8 @@ class _HomeViewState extends State<HomeView> {
         ),
         child: Center(
           child: Container(
-            width: 932,
-            height: 410,
+            width: 550,
+            height: 350,
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -84,11 +84,14 @@ class _HomeViewState extends State<HomeView> {
                 Row(
                   children: [
                     Expanded(
-                      child: DropdownButtonFormField<String>(
-                        value: _selectedDomain,
-                        decoration: InputDecoration(border: OutlineInputBorder(), filled: true, fillColor: Colors.white),
-                        items: ['tinyurl.com', 'short.ly', 'myurl.io'].map((domain) => DropdownMenuItem(value: domain, child: Text(domain))).toList(),
-                        onChanged: (value) => setState(() => _selectedDomain = value!),
+                      child: TextField(
+                        controller: TextEditingController(text: _selectedDomain),
+                        readOnly: true, // Make it uneditable
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          filled: true,
+                          fillColor: Colors.white,
+                        ),
                       ),
                     ),
                     SizedBox(width: 10),
@@ -105,18 +108,22 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: _shortenUrl,
-                  child: Text('Shorten URL'),
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.green, foregroundColor: Colors.white),
+                SizedBox(height: 30),
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: _shortenUrl,
+                    child: Text('Shorten URL', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.green, foregroundColor: Colors.white),
+                  ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 40),
                 if (_shortenedUrl != null)
                   Card(
                     color: Colors.white,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(14.0),
                       child: Column(
                         children: [
                           Text('Success!', style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold)),
