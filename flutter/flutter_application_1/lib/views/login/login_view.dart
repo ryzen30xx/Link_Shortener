@@ -1,30 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/navigation_bar/navigation_bar.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key}) : super(key: key);
+class LoginView extends StatelessWidget {
+  const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final bool isSmallScreen = MediaQuery.of(context).size.width < 600;
-
     return Scaffold(
+      appBar: Navbar(),
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment(0.8, 1),
-            colors: <Color>[
-              Color(0xff1f005c),
-              Color(0xff5b0060),
-              Color(0xff870160),
-              Color(0xffac255e),
-              Color(0xffca485c),
-              Color(0xffe16b5c),
-              Color(0xfff39060),
-              Color(0xffffb56b),
-            ],
-            tileMode: TileMode.mirror,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/background.jpg'),
+            fit: BoxFit.cover,
           ),
         ),
         child: Center(
@@ -74,7 +62,7 @@ class _Logo extends StatelessWidget {
 }
 
 class _FormContent extends StatefulWidget {
-  const _FormContent({Key? key}) : super(key: key);
+  const _FormContent({super.key});
 
   @override
   State<_FormContent> createState() => __FormContentState();
@@ -83,6 +71,7 @@ class _FormContent extends StatefulWidget {
 class __FormContentState extends State<_FormContent> {
   bool _isPasswordVisible = false;
   bool _rememberMe = false;
+  bool _isLoading = false;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -95,7 +84,7 @@ class __FormContentState extends State<_FormContent> {
         children: [
           TextFormField(
             validator: (value) {
-              if (value == null || value.isEmpty) return 'Please enter some text';
+              if (value == null || value.isEmpty) return 'Please enter to the field';
               bool emailValid = RegExp(
                       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                   .hasMatch(value);
@@ -110,7 +99,7 @@ class __FormContentState extends State<_FormContent> {
           const SizedBox(height: 16),
           TextFormField(
             validator: (value) {
-              if (value == null || value.isEmpty) return 'Please enter some text';
+              if (value == null || value.isEmpty) return 'Please enter to the field';
               return value.length < 6 ? 'Password must be at least 6 characters' : null;
             },
             obscureText: !_isPasswordVisible,
@@ -132,22 +121,38 @@ class __FormContentState extends State<_FormContent> {
             controlAffinity: ListTileControlAffinity.leading,
           ),
           const SizedBox(height: 16),
-          SizedBox(
-            width: double.infinity,
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            width: _isLoading ? 50 : double.infinity,
+            height: 50,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                backgroundColor: const Color.fromARGB(255, 129, 0, 189),
               ),
-              child: const Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Text(
-                  'Sign in',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ),
+              child: _isLoading
+                  ? const CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    )
+                  : const Text(
+                      'Sign in',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(210, 255, 255, 255)),
+                    ),
               onPressed: () {
                 if (_formKey.currentState?.validate() ?? false) {
+                  setState(() {
+                    _isLoading = true;
+                  });
                   // Perform sign-in logic
+                  // Simulate a delay for the animation
+                  Future.delayed(const Duration(seconds: 2), () {
+                    setState(() {
+                      _isLoading = false;
+                    });
+                  });
                 }
               },
             ),
