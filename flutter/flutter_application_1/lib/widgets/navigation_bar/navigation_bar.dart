@@ -27,40 +27,42 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         MouseRegion(
           onEnter: (_) {
-        // Add your animation code here
-        
+            // Add your animation code here
           },
           onExit: (_) {
-        // Add your animation code here
+            // Add your animation code here
           },
           child: TextButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => HomeView()));
-        },
-        child: Text(
-          'Home',
-          style: TextStyle(color: Colors.white, fontSize: 20.0),
-        ),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => HomeView()),
+              );
+            },
+            child: Text(
+              'Home',
+              style: TextStyle(color: Colors.white, fontSize: 20.0),
+            ),
           ),
         ),
         MouseRegion(
           onEnter: (_) {
-        // Add your animation code here
+            // Add your animation code here
           },
           onExit: (_) {
-        // Add your animation code here
+            // Add your animation code here
           },
           child: TextButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => LoginView()),
-          );
-        },
-        child: Text(
-          'Login',
-          style: TextStyle(color: Colors.white, fontSize: 20.0),
-        ),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => LoginView()),
+              );
+            },
+            child: Text(
+              'Sign In',
+              style: TextStyle(color: Colors.white, fontSize: 20.0),
+            ),
           ),
         ),
       ],

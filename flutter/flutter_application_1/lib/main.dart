@@ -1,12 +1,9 @@
-// import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/home/home_view.dart';
-// import 'package:flutter_application_1/views/login/login_view.dart';
-// import 'package:flutter_application_1/';
-// import 'package:provider/provider.dart';
+import 'package:flutter_application_1/views/redirect/redirect_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,8 +16,27 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:HomeView()
+      onGenerateRoute: (settings) {
+        if (settings.name == null || settings.name == '/') {
+          return MaterialPageRoute(
+            builder: (context) => const HomeView(shortUrl: 'Nope'),
+          );
+        }
+
+        Uri uri = Uri.parse(settings.name!);
+        if (uri.pathSegments.isNotEmpty) {
+          String shortUrl = uri.pathSegments.first;
+          print ('shortUrl: $shortUrl');
+          return MaterialPageRoute(
+            builder: (context) => RedirectPage(shortUrl: shortUrl),
+          );
+        }
+
+        return MaterialPageRoute(
+          builder: (context) => const HomeView(shortUrl: 'None'),
+        );
+      },
+      initialRoute: '/',
     );
   }
 }
-

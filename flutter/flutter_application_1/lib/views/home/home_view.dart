@@ -18,6 +18,8 @@ class LinkShortenerApp extends StatelessWidget {
 }
 
 class HomeView extends StatefulWidget {
+  final String? shortUrl;
+  const HomeView({this.shortUrl});
   @override
   _HomeViewState createState() => _HomeViewState();
 }
@@ -78,8 +80,8 @@ class _HomeViewState extends State<HomeView> {
                     controller: _urlController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'Enter long link here',
-                      labelText: 'Shorten a long URL', // Added label text
+                      hintText: widget.shortUrl,
+                      labelText: widget.shortUrl, // Added label text
                       filled: true,
                       fillColor: const Color.fromARGB(255, 255, 255, 255),
                     ),

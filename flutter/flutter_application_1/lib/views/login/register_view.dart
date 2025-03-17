@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/navigation_bar/navigation_bar.dart';
-import 'package:flutter_application_1/views/login/register_view.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class RegisterView extends StatelessWidget {
+  const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +51,7 @@ class _Logo extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.all(16.0),
           child: Text(
-            "Welcome to Link Shortener",
+            "Create Your Account",
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
@@ -63,7 +62,7 @@ class _Logo extends StatelessWidget {
 }
 
 class _FormContent extends StatefulWidget {
-  const _FormContent({super.key});
+  const _FormContent();
 
   @override
   State<_FormContent> createState() => __FormContentState();
@@ -71,10 +70,11 @@ class _FormContent extends StatefulWidget {
 
 class __FormContentState extends State<_FormContent> {
   bool _isPasswordVisible = false;
-  bool _rememberMe = false;
   bool _isLoading = false;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _confirmEmailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +85,20 @@ class __FormContentState extends State<_FormContent> {
         children: [
           TextFormField(
             validator: (value) {
-              if (value == null || value.isEmpty) return 'Please enter to the field';
+              if (value == null || value.isEmpty) return 'Please enter your username';
+              return null;
+            },
+            decoration: const InputDecoration(
+              labelText: 'Username',
+              prefixIcon: Icon(Icons.person_outline),
+              border: OutlineInputBorder(),
+            ),
+          ),
+          const SizedBox(height: 16),
+          TextFormField(
+            controller: _emailController,
+            validator: (value) {
+              if (value == null || value.isEmpty) return 'Please enter your email';
               bool emailValid = RegExp(
                       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                   .hasMatch(value);
@@ -99,8 +112,22 @@ class __FormContentState extends State<_FormContent> {
           ),
           const SizedBox(height: 16),
           TextFormField(
+            controller: _confirmEmailController,
             validator: (value) {
-              if (value == null || value.isEmpty) return 'Please enter to the field';
+              if (value == null || value.isEmpty) return 'Please confirm your email';
+              if (value != _emailController.text) return 'Emails do not match';
+              return null;
+            },
+            decoration: const InputDecoration(
+              labelText: 'Confirm Email',
+              prefixIcon: Icon(Icons.email_outlined),
+              border: OutlineInputBorder(),
+            ),
+          ),
+          const SizedBox(height: 16),
+          TextFormField(
+            validator: (value) {
+              if (value == null || value.isEmpty) return 'Please enter your password';
               return value.length < 6 ? 'Password must be at least 6 characters' : null;
             },
             obscureText: !_isPasswordVisible,
@@ -113,13 +140,6 @@ class __FormContentState extends State<_FormContent> {
                 onPressed: () => setState(() => _isPasswordVisible = !_isPasswordVisible),
               ),
             ),
-          ),
-          const SizedBox(height: 16),
-          CheckboxListTile(
-            value: _rememberMe,
-            onChanged: (value) => setState(() => _rememberMe = value!),
-            title: const Text('Remember me'),
-            controlAffinity: ListTileControlAffinity.leading,
           ),
           const SizedBox(height: 16),
           AnimatedContainer(
@@ -136,7 +156,7 @@ class __FormContentState extends State<_FormContent> {
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                     )
                   : const Text(
-                      'Sign in',
+                      'Register',
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -147,8 +167,7 @@ class __FormContentState extends State<_FormContent> {
                   setState(() {
                     _isLoading = true;
                   });
-                  // Perform sign-in logic
-                  // Simulate a delay for the animation
+                  // Perform sign-up logic
                   Future.delayed(const Duration(seconds: 2), () {
                     setState(() {
                       _isLoading = false;
@@ -157,16 +176,6 @@ class __FormContentState extends State<_FormContent> {
                 }
               },
             ),
-          ),
-          const SizedBox(height: 16),
-          TextButton( // Add a button to navigate to the registration page
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => RegisterView()),
-              );
-            },
-            child: const Text("Do not have an account? Register"),
           ),
         ],
       ),
