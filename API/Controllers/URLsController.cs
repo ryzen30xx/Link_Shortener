@@ -20,6 +20,15 @@ namespace API.Controllers
             _context = context;
         }
 
+        // Hàm tạo Short_URL ngẫu nhiên
+        private string GenerateShortUrl()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            Random random = new Random();
+            return new string(Enumerable.Repeat(chars, 6)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
         // GET: api/URLs
         [HttpGet]
         public async Task<ActionResult<IEnumerable<URLs>>> GetURLs()
@@ -28,30 +37,48 @@ namespace API.Controllers
         }
 
         // GET: api/URLs/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<URLs>> GetURLs(string id)
+        // GET: api/URLs/{Origin_URL}
+        [HttpGet("{*Origin_URL}")]
+        public async Task<ActionResult<URLs>> GetURLs([FromRoute] string Origin_URL)
         {
-            var uRLs = await _context.URLs.FindAsync(id);
+            var urlEntry = await _context.URLs
+                .Where(e => e.Origin_URL == Origin_URL)
+                .FirstOrDefaultAsync();
 
-            if (uRLs == null)
+            if (urlEntry == null)
             {
                 return NotFound();
             }
 
-            return uRLs;
+            return urlEntry;
         }
 
+
         // PUT: api/URLs/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutURLs(string id, URLs uRLs)
+        [HttpPut("{*Origin_URL}")]
+        public async Task<IActionResult> PutURLs([FromRoute] string Origin_URL, URLs uRLs)
         {
-            if (id != uRLs.Origin_URL)
+            if (Origin_URL != uRLs.Origin_URL)
             {
                 return BadRequest();
             }
 
-            _context.Entry(uRLs).State = EntityState.Modified;
+            var existingUrl = await _context.URLs
+                .Where(e => e.Origin_URL == Origin_URL)
+                .FirstOrDefaultAsync();
+
+            if (existingUrl == null)
+            {
+                return NotFound();
+            }
+
+            // Cập nhật thông tin
+            existingUrl.Short_URL = uRLs.Short_URL;
+            existingUrl.UserName = uRLs.UserName;
+            existingUrl.Create_date = uRLs.Create_date;
+            existingUrl.Expired_date = DateTime.Now.AddDays(7);
+
+            _context.Entry(existingUrl).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +86,7 @@ namespace API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!URLsExists(id))
+                if (!URLsExists(Origin_URL))
                 {
                     return NotFound();
                 }
@@ -72,11 +99,23 @@ namespace API.Controllers
             return NoContent();
         }
 
+
         // POST: api/URLs
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<URLs>> PostURLs(URLs uRLs)
         {
+            // Nếu Short_URL chưa có, tự động tạo
+            if (string.IsNullOrEmpty(uRLs.Short_URL))
+            {
+                uRLs.Short_URL = GenerateShortUrl();
+            }
+
+            // Kiểm tra nếu Short_URL đã tồn tại, tạo lại đến khi có mã duy nhất
+            while (_context.URLs.Any(e => e.Short_URL == uRLs.Short_URL))
+            {
+                uRLs.Short_URL = GenerateShortUrl();
+            }
+
             _context.URLs.Add(uRLs);
             try
             {
@@ -86,7 +125,7 @@ namespace API.Controllers
             {
                 if (URLsExists(uRLs.Origin_URL))
                 {
-                    return Conflict();
+                    return Conflict(new { message = "Original URL already exists" });
                 }
                 else
                 {
@@ -98,20 +137,27 @@ namespace API.Controllers
         }
 
         // DELETE: api/URLs/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteURLs(string id)
+        // DELETE: api/URLs/{Origin_URL}
+        [HttpDelete("{*Origin_URL}")]
+        public async Task<IActionResult> DeleteURLs([FromRoute] string Origin_URL)
         {
-            var uRLs = await _context.URLs.FindAsync(id);
-            if (uRLs == null)
+            var urlEntry = await _context.URLs
+                .Where(e => e.Origin_URL == Origin_URL)
+                .FirstOrDefaultAsync();
+
+            if (urlEntry == null)
             {
                 return NotFound();
             }
 
-            _context.URLs.Remove(uRLs);
+            _context.URLs.Remove(urlEntry);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return NoContent(); // 204 No Content
         }
+
+
+
 
         private bool URLsExists(string id)
         {

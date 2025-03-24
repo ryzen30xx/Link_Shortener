@@ -27,11 +27,11 @@ namespace API.Controllers
             return await _context.Users.ToListAsync();
         }
 
-        // GET: api/Users/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Users>> GetUsers(string id)
+        // GET: api/Users/{UserName}
+        [HttpGet("{*UserName}")]
+        public async Task<ActionResult<Users>> GetUsers(string UserName)
         {
-            var users = await _context.Users.FindAsync(id);
+            var users = await _context.Users.FindAsync(UserName);
 
             if (users == null)
             {
@@ -41,12 +41,11 @@ namespace API.Controllers
             return users;
         }
 
-        // PUT: api/Users/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsers(string id, Users users)
+        // PUT: api/Users/{UserName}
+        [HttpPut("{*UserName}")]
+        public async Task<IActionResult> PutUsers(string UserName, Users users)
         {
-            if (id != users.UserName)
+            if (UserName != users.UserName)
             {
                 return BadRequest();
             }
@@ -59,7 +58,7 @@ namespace API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UsersExists(id))
+                if (!UsersExists(UserName))
                 {
                     return NotFound();
                 }
@@ -73,7 +72,6 @@ namespace API.Controllers
         }
 
         // POST: api/Users
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Users>> PostUsers(Users users)
         {
@@ -94,14 +92,14 @@ namespace API.Controllers
                 }
             }
 
-            return CreatedAtAction("GetUsers", new { id = users.UserName }, users);
+            return CreatedAtAction("GetUsers", new { UserName = users.UserName }, users);
         }
 
-        // DELETE: api/Users/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUsers(string id)
+        // DELETE: api/Users/{UserName}
+        [HttpDelete("{*UserName}")]
+        public async Task<IActionResult> DeleteUsers(string UserName)
         {
-            var users = await _context.Users.FindAsync(id);
+            var users = await _context.Users.FindAsync(UserName);
             if (users == null)
             {
                 return NotFound();
@@ -113,9 +111,9 @@ namespace API.Controllers
             return NoContent();
         }
 
-        private bool UsersExists(string id)
+        private bool UsersExists(string UserName)
         {
-            return _context.Users.Any(e => e.UserName == id);
+            return _context.Users.Any(e => e.UserName == UserName);
         }
     }
 }
