@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/home/home_view.dart';
+import 'package:flutter_application_1/views/panel/ManageURLView.dart';
 import 'package:flutter_application_1/views/redirect/redirect_page.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: (settings) {
         if (settings.name == null || settings.name == '/') {
           return MaterialPageRoute(
-            builder: (context) => const HomeView(shortUrl: 'Nope'),
+            builder: (context) => ManageURLsView(),
           );
         }
 
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         }
 
         return MaterialPageRoute(
-          builder: (context) => const HomeView(shortUrl: 'None'),
+          builder: (context) =>  HomeView(),
         );
       },
       initialRoute: '/',

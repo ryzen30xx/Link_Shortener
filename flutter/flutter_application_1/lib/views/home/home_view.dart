@@ -18,14 +18,11 @@ class LinkShortenerApp extends StatelessWidget {
 }
 
 class HomeView extends StatefulWidget {
-  final String? shortUrl;
-  const HomeView({this.shortUrl});
   @override
   _HomeViewState createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
-  
   final TextEditingController _urlController = TextEditingController();
   final TextEditingController _aliasController = TextEditingController();
   String _selectedDomain = 'shortener.isharoverwhite.com';
@@ -50,42 +47,40 @@ class _HomeViewState extends State<HomeView> {
         ),
         child: LayoutBuilder(
           builder: (context, constraints) {
-            // Adjust container size to be smaller
-            double containerWidth = constraints.maxWidth * 0.4;
-            double containerHeight = constraints.maxHeight * 0.3;
-
-            if (constraints.maxWidth < 800) {
-              containerWidth = constraints.maxWidth * 0.6;
-              containerHeight = constraints.maxHeight * 0.3;
+            // 🔹 Improved width responsiveness
+            double containerWidth = constraints.maxWidth * 0.5; // Default: 50% of screen width
+            if (constraints.maxWidth < 900) {
+              containerWidth = constraints.maxWidth * 0.7; // Medium screens: 70% width
+            }
+            if (constraints.maxWidth < 600) {
+              containerWidth = constraints.maxWidth * 0.9; // Small screens: 90% width
             }
 
             return Center(
               child: Container(
                 width: containerWidth,
-                height: containerHeight,
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 255, 255, 255),
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
                 ),
                 child: SingleChildScrollView(
                   child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    // Text('Shorten a long URL', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 10),
-                    TextField(
-                    controller: _urlController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: widget.shortUrl,
-                      labelText: widget.shortUrl, // Added label text
-                      filled: true,
-                      fillColor: const Color.fromARGB(255, 255, 255, 255),
-                    ),
-                    ),
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      SizedBox(height: 10),
+                      TextField(
+                        controller: _urlController,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "Enter URL",
+                          labelText: "Long Link", // Added label text
+                          filled: true,
+                          fillColor: Colors.white,
+                        ),
+                      ),
                       SizedBox(height: 10),
                       Row(
                         children: [
@@ -96,7 +91,7 @@ class _HomeViewState extends State<HomeView> {
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(),
                                 filled: true,
-                                fillColor: const Color.fromARGB(255, 255, 255, 255),
+                                fillColor: Colors.white,
                               ),
                             ),
                           ),
@@ -109,23 +104,26 @@ class _HomeViewState extends State<HomeView> {
                                 hintText: 'Enter alias',
                                 labelText: 'Enter alias',
                                 filled: true,
-                                fillColor: const Color.fromARGB(255, 255, 255, 255),
+                                fillColor: Colors.white,
                               ),
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 30),
+                      SizedBox(height: 20),
                       SizedBox(
                         width: double.infinity,
                         height: 50,
                         child: ElevatedButton(
                           onPressed: _shortenUrl,
-                          style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 135, 0, 139), foregroundColor: Colors.white),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromARGB(255, 135, 0, 139),
+                            foregroundColor: Colors.white,
+                          ),
                           child: Text('Shorten URL', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                         ),
                       ),
-                      SizedBox(height: 40),
+                      SizedBox(height: 30),
                       if (_shortenedUrl != null)
                         Card(
                           color: Colors.white,
@@ -133,7 +131,7 @@ class _HomeViewState extends State<HomeView> {
                             padding: const EdgeInsets.all(14.0),
                             child: Column(
                               children: [
-                                Text('Success!', style: TextStyle(color: const Color.fromARGB(255, 133, 2, 185), fontWeight: FontWeight.bold)),
+                                Text('Success!', style: TextStyle(color: Color.fromARGB(255, 133, 2, 185), fontWeight: FontWeight.bold)),
                                 SelectableText(_shortenedUrl!, style: TextStyle(color: Colors.blue)),
                               ],
                             ),
