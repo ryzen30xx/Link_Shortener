@@ -17,7 +17,7 @@ namespace API.Migrations
                 {
                     Origin_URL = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Short_URL = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    user_id = table.Column<int>(type: "int", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Create_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Expired_date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },

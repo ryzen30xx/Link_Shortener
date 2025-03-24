@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\api\\controllers\\urlscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|solutionrelative:controllers\\urlscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\api\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|solutionrelative:models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\api\\migrations\\20250324083227_initial migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|solutionrelative:migrations\\20250324083227_initial migration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\api\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\api\\models\\urls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|solutionrelative:models\\urls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\api\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|solutionrelative:models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F3DE2AB-F782-4C65-B8DE-AC8471230043}|API.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,11 +46,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20250324083227_Initial Migration.cs",
+              "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\API\\Migrations\\20250324083227_Initial Migration.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250324083227_Initial Migration.cs",
+              "ToolTip": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\API\\Migrations\\20250324083227_Initial Migration.cs",
+              "RelativeToolTip": "Migrations\\20250324083227_Initial Migration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T08:32:27.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "URLsController.cs",
+              "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\API\\Controllers\\URLsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\URLsController.cs",
+              "ToolTip": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\API\\Controllers\\URLsController.cs",
+              "RelativeToolTip": "Controllers\\URLsController.cs",
+              "ViewState": "AgIAABgAAACALzMzM7MQwHMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T08:31:27.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\API\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
@@ -54,25 +84,12 @@
               "RelativeToolTip": "Controllers\\UsersController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T07:18:21.238Z",
+              "WhenOpened": "2025-03-24T08:29:46.913Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "URLsController.cs",
-              "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\API\\Controllers\\URLsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\URLsController.cs",
-              "ToolTip": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\API\\Controllers\\URLsController.cs",
-              "RelativeToolTip": "Controllers\\URLsController.cs",
-              "ViewState": "AgIAABcAAACAY2ZmZmYSwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T07:16:57.358Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\API\\Dockerfile",
               "RelativeDocumentMoniker": "Dockerfile",
@@ -84,7 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\API\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -96,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\API\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -108,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ApiDbContext.cs",
               "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\API\\Models\\ApiDbContext.cs",
               "RelativeDocumentMoniker": "Models\\ApiDbContext.cs",
@@ -126,14 +143,14 @@
               "RelativeDocumentMoniker": "Models\\URLs.cs",
               "ToolTip": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\API\\Models\\URLs.cs",
               "RelativeToolTip": "Models\\URLs.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-13T06:01:31.177Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Users.cs",
               "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\API\\Models\\Users.cs",
               "RelativeDocumentMoniker": "Models\\Users.cs",
