@@ -1,13 +1,13 @@
-CREATE TABLE URL (
-	origin_link VARCHAR(255),
-  short_link VARCHAR(255),
-  author VARCHAR(255),
-  created_date DATETIME,
-  end_date DATETIME
-)
 CREATE TABLE Users (
-    UserId INT,  -- INT không cần chỉ định độ dài
-    UserName VARCHAR(255),  -- VARCHAR không thể có độ dài âm, đặt một giá trị hợp lý như 255
-    Password VARCHAR(255),  
-    Email VARCHAR(255)
+    UserName NVARCHAR(450),
+    Password NVARCHAR(MAX) NOT NULL,
+    Email NVARCHAR(MAX) NOT NULL
+);
+
+CREATE TABLE URLs (
+    Origin_URL NVARCHAR(450) PRIMARY KEY,
+    Short_URL NVARCHAR(MAX) NOT NULL,
+    user_id INT NOT NULL,
+    Create_date DATETIME2(7) NOT NULL,
+    Expired_date DATETIME2(7) NULL
 );
