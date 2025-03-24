@@ -1,13 +1,20 @@
+-- Xóa bảng nếu tồn tại
+DROP TABLE IF EXISTS URLs;
+DROP TABLE IF EXISTS Users;
+
+-- Tạo bảng Users
 CREATE TABLE Users (
-    UserName NVARCHAR(450),
+    UserName NVARCHAR(450) PRIMARY KEY,
     Password NVARCHAR(MAX) NOT NULL,
     Email NVARCHAR(MAX) NOT NULL
 );
 
+-- Tạo bảng URLs
 CREATE TABLE URLs (
     Origin_URL NVARCHAR(450) PRIMARY KEY,
     Short_URL NVARCHAR(MAX) NOT NULL,
-    user_id INT NOT NULL,
-    Create_date DATETIME2(7) NOT NULL,
-    Expired_date DATETIME2(7) NULL
+    UserName NVARCHAR(450) NOT NULL,
+    Create_date DATETIME2(7) NOT NULL DEFAULT GETDATE(),
+    Expired_date DATETIME2(7) NULL,
+    FOREIGN KEY (UserName) REFERENCES Users(UserName) ON DELETE CASCADE
 );
