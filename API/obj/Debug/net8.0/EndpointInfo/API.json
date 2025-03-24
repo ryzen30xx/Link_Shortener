@@ -89,19 +89,18 @@
         }
       }
     },
-    "/api/URLs/{id}": {
+    "/api/URLs/{Origin_URL}": {
       "get": {
         "tags": [
           "URLs"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "Origin_URL",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
@@ -134,12 +133,11 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "Origin_URL",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
@@ -174,12 +172,11 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "Origin_URL",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
@@ -190,43 +187,38 @@
         }
       }
     },
-    "/api/Users": {
-      "get": {
+    "/api/Users/login": {
+      "post": {
         "tags": [
           "Users"
         ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Users"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Users"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Users"
-                  }
-                }
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
         }
-      },
+      }
+    },
+    "/api/Users": {
       "post": {
         "tags": [
           "Users"
@@ -272,21 +264,56 @@
             }
           }
         }
+      },
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Users"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Users"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Users"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
-    "/api/Users/{id}": {
+    "/api/Users/{UserName}": {
       "get": {
         "tags": [
           "Users"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "UserName",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
@@ -319,12 +346,11 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "UserName",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
@@ -359,12 +385,11 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "UserName",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
@@ -378,6 +403,20 @@
   },
   "components": {
     "schemas": {
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "URLs": {
         "required": [
           "create_date",
@@ -385,15 +424,15 @@
         ],
         "type": "object",
         "properties": {
-          "urlId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "origin_URL": {
             "minLength": 1,
             "type": "string"
           },
           "short_URL": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
             "type": "string",
             "nullable": true
           },
@@ -415,10 +454,6 @@
         ],
         "type": "object",
         "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "userName": {
             "minLength": 1,
             "type": "string"

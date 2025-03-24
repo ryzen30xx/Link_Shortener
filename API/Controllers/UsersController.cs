@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API.Models;
@@ -20,34 +17,73 @@ namespace API.Controllers
             _context = context;
         }
 
-        // GET: api/Users
+        // ✅ LOGIN ENDPOINT
+        [HttpPost("login")]
+        public async Task<ActionResult> Login([FromBody] LoginRequest model)
+        {
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.UserName == model.Username && u.Password == model.Password);
+
+            if (user == null)
+            {
+                return Unauthorized(new { message = "Invalid username or password" });
+            }
+
+            return Ok(new { message = "Login successful", user.UserName, user.Email });
+        }
+
+        // ✅ REGISTER ENDPOINT
+        [HttpPost]
+        public async Task<ActionResult<Users>> RegisterUser([FromBody] Users users)
+        {
+            // 🔹 Check if username or email already exists
+            var existingUser = await _context.Users
+                .FirstOrDefaultAsync(u => u.UserName == users.UserName || u.Email == users.Email);
+
+            if (existingUser != null)
+            {
+                return Conflict(new { message = "Username or Email already exists!" });
+            }
+
+            _context.Users.Add(users);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetUsers", new { UserName = users.UserName }, new
+            {
+                message = "User registered successfully",
+                users.UserName,
+                users.Email
+            });
+        }
+
+        // ✅ GET ALL USERS
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Users>>> GetUsers()
         {
             return await _context.Users.ToListAsync();
         }
 
-        // GET: api/Users/{UserName}
-        [HttpGet("{*UserName}")]
+        // ✅ GET USER BY USERNAME
+        [HttpGet("{UserName}")]
         public async Task<ActionResult<Users>> GetUsers(string UserName)
         {
-            var users = await _context.Users.FindAsync(UserName);
+            var users = await _context.Users.FirstOrDefaultAsync(u => u.UserName == UserName);
 
             if (users == null)
             {
-                return NotFound();
+                return NotFound(new { message = "User not found" });
             }
 
             return users;
         }
 
-        // PUT: api/Users/{UserName}
-        [HttpPut("{*UserName}")]
+        // ✅ UPDATE USER
+        [HttpPut("{UserName}")]
         public async Task<IActionResult> PutUsers(string UserName, Users users)
         {
             if (UserName != users.UserName)
             {
-                return BadRequest();
+                return BadRequest(new { message = "Username mismatch" });
             }
 
             _context.Entry(users).State = EntityState.Modified;
@@ -60,7 +96,7 @@ namespace API.Controllers
             {
                 if (!UsersExists(UserName))
                 {
-                    return NotFound();
+                    return NotFound(new { message = "User not found" });
                 }
                 else
                 {
@@ -71,49 +107,32 @@ namespace API.Controllers
             return NoContent();
         }
 
-        // POST: api/Users
-        [HttpPost]
-        public async Task<ActionResult<Users>> PostUsers(Users users)
-        {
-            _context.Users.Add(users);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (UsersExists(users.UserName))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtAction("GetUsers", new { UserName = users.UserName }, users);
-        }
-
-        // DELETE: api/Users/{UserName}
-        [HttpDelete("{*UserName}")]
+        // ✅ DELETE USER
+        [HttpDelete("{UserName}")]
         public async Task<IActionResult> DeleteUsers(string UserName)
         {
-            var users = await _context.Users.FindAsync(UserName);
+            var users = await _context.Users.FirstOrDefaultAsync(u => u.UserName == UserName);
             if (users == null)
             {
-                return NotFound();
+                return NotFound(new { message = "User not found" });
             }
 
             _context.Users.Remove(users);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(new { message = "User deleted successfully" });
         }
 
         private bool UsersExists(string UserName)
         {
             return _context.Users.Any(e => e.UserName == UserName);
+        }
+
+        // ✅ LOGIN REQUEST MODEL
+        public class LoginRequest
+        {
+            public string Username { get; set; }
+            public string Password { get; set; }
         }
     }
 }
