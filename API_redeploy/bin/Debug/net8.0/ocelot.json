@@ -1,0 +1,26 @@
+{
+    "Routes": [
+      {
+        "DownstreamPathTemplate": "/api/URLs",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          { "Host": "localhost", "Port": 5001 }
+        ],
+        "UpstreamPathTemplate": "/api/URLs",
+        "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+      },
+      {
+        "DownstreamPathTemplate": "/api/users",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          { "Host": "localhost", "Port": 5002 }
+        ],
+        "UpstreamPathTemplate": "/api/users",
+        "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+      }
+    ],
+    "GlobalConfiguration": {
+      "BaseUrl": "http://localhost:5254"
+    }
+  }
+  
