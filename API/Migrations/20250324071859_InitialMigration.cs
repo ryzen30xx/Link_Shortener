@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace API.Migrations
 {
     /// <inheritdoc />
-    public partial class initialmigration : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,31 +15,28 @@ namespace API.Migrations
                 name: "URLs",
                 columns: table => new
                 {
-                    URLId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Origin_URL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Origin_URL = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Short_URL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    user_id = table.Column<int>(type: "int", nullable: false),
                     Create_date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Expired_date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_URLs", x => x.URLId);
+                    table.PrimaryKey("PK_URLs", x => x.Origin_URL);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => x.UserName);
                 });
         }
 

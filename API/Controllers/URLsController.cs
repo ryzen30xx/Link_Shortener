@@ -29,7 +29,7 @@ namespace API.Controllers
 
         // GET: api/URLs/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<URLs>> GetURLs(int id)
+        public async Task<ActionResult<URLs>> GetURLs(string id)
         {
             var uRLs = await _context.URLs.FindAsync(id);
 
@@ -44,9 +44,9 @@ namespace API.Controllers
         // PUT: api/URLs/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutURLs(int id, URLs uRLs)
+        public async Task<IActionResult> PutURLs(string id, URLs uRLs)
         {
-            if (id != uRLs.URLId)
+            if (id != uRLs.Origin_URL)
             {
                 return BadRequest();
             }
@@ -78,14 +78,28 @@ namespace API.Controllers
         public async Task<ActionResult<URLs>> PostURLs(URLs uRLs)
         {
             _context.URLs.Add(uRLs);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (URLsExists(uRLs.Origin_URL))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
-            return CreatedAtAction("GetURLs", new { id = uRLs.URLId }, uRLs);
+            return CreatedAtAction("GetURLs", new { id = uRLs.Origin_URL }, uRLs);
         }
 
         // DELETE: api/URLs/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteURLs(int id)
+        public async Task<IActionResult> DeleteURLs(string id)
         {
             var uRLs = await _context.URLs.FindAsync(id);
             if (uRLs == null)
@@ -99,9 +113,9 @@ namespace API.Controllers
             return NoContent();
         }
 
-        private bool URLsExists(int id)
+        private bool URLsExists(string id)
         {
-            return _context.URLs.Any(e => e.URLId == id);
+            return _context.URLs.Any(e => e.Origin_URL == id);
         }
     }
 }

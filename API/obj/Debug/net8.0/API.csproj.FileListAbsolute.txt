@@ -272,10 +272,13 @@ C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\obj\Debug\net8.0\staticwe
 C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.API.props
 C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.API.props
 C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\obj\Debug\net8.0\API.csproj.Up2Date
 C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\obj\Debug\net8.0\API.dll
 C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\obj\Debug\net8.0\refint\API.dll
 C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\obj\Debug\net8.0\API.pdb
 C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\obj\Debug\net8.0\ref\API.dll
+C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\bin\Debug\net8.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\bin\Debug\net8.0\StackExchange.Redis.dll
+C:\Users\ryzen30xx\Documents\GitHub\Link_Shortener\API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -12,10 +12,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApiDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
 
-builder.Services.AddStackExchangeRedisCache(options => // Redis Cache
-{
-options.Configuration = "localhost:6379"; // !!! Change this to Redis server address
-});
+//builder.Services.AddStackExchangeRedisCache(options => // Redis Cache
+//{
+//options.Configuration = "localhost:6379"; // !!! Change this to Redis server address
+//});
 
 
 // Configure the HTTP request pipeline.

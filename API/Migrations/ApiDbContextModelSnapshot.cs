@@ -24,11 +24,8 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.URLs", b =>
                 {
-                    b.Property<int>("URLId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("URLId"));
+                    b.Property<string>("Origin_URL")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Create_date")
                         .HasColumnType("datetime2");
@@ -36,26 +33,22 @@ namespace API.Migrations
                     b.Property<DateTime>("Expired_date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Origin_URL")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Short_URL")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("URLId");
+                    b.Property<int>("user_id")
+                        .HasColumnType("int");
+
+                    b.HasKey("Origin_URL");
 
                     b.ToTable("URLs");
                 });
 
             modelBuilder.Entity("API.Models.Users", b =>
                 {
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -65,11 +58,7 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserId");
+                    b.HasKey("UserName");
 
                     b.ToTable("Users");
                 });
