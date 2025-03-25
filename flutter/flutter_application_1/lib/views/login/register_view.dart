@@ -20,16 +20,10 @@ class _RegisterViewState extends State<RegisterView> {
   final TextEditingController _confirmEmailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  // ✅ Register User Function with Credential Check
   Future<void> _register() async {
     if (!_formKey.currentState!.validate()) return;
 
     setState(() => _isLoading = true);
-
-    // print("🔹 Attempting registration...");
-    // print("🔹 Username: ${_usernameController.text}");
-    // print("🔹 Email: ${_emailController.text}");
-    // print("🔹 Password: ${_passwordController.text}");
 
     String result = await UserService.register(
       _usernameController.text.trim(),
@@ -37,24 +31,21 @@ class _RegisterViewState extends State<RegisterView> {
       _passwordController.text.trim(),
     );
 
-    if (!mounted) return; // ✅ Prevent calling setState() after dispose
-
+    if (!mounted) return;
     setState(() => _isLoading = false);
-
-    // print("🔹 Registration Result: $result");
 
     if (result == "success") {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('✅ Account created successfully!'), backgroundColor: Colors.green),
+        const SnackBar(content: Text('✅ Account created successfully!'), backgroundColor: Colors.green),
       );
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginView())); // ✅ Redirect to Login
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginView()));
     } else if (result == "exists") {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('❌ Username or Email already exists!'), backgroundColor: Colors.orange),
+        const SnackBar(content: Text('❌ Username or Email already exists!'), backgroundColor: Colors.orange),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('❌ Registration failed. Try again!'), backgroundColor: Colors.red),
+        const SnackBar(content: Text('❌ Registration failed. Try again!'), backgroundColor: Colors.red),
       );
     }
   }
@@ -64,20 +55,22 @@ class _RegisterViewState extends State<RegisterView> {
     return Scaffold(
       appBar: Navbar(),
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/background.jpg'), // ✅ Background Image Restored
-            fit: BoxFit.cover,
-          ),
-        ),
+        color: const Color.fromARGB(157, 255, 255, 255),
         child: Center(
           child: Container(
             padding: const EdgeInsets.all(32.0),
             constraints: const BoxConstraints(maxWidth: 400),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: const Color.fromARGB(255, 255, 255, 255),
               borderRadius: BorderRadius.circular(12),
-              boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black38,
+                  blurRadius: 15,
+                  spreadRadius: 5,
+                  offset: Offset(7, 7),
+                ),
+              ],
             ),
             child: Form(
               key: _formKey,
@@ -86,11 +79,10 @@ class _RegisterViewState extends State<RegisterView> {
                 children: [
                   FlutterLogo(size: 100),
                   const SizedBox(height: 16),
-                  Text("Create Your Account", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                  const Text("Create Your Account", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
 
                   const SizedBox(height: 20),
 
-                  // Username Field
                   TextFormField(
                     controller: _usernameController,
                     validator: (value) => value == null || value.isEmpty ? 'Please enter your username' : null,
@@ -103,7 +95,6 @@ class _RegisterViewState extends State<RegisterView> {
 
                   const SizedBox(height: 16),
 
-                  // Email Field
                   TextFormField(
                     controller: _emailController,
                     validator: (value) {
@@ -120,7 +111,6 @@ class _RegisterViewState extends State<RegisterView> {
 
                   const SizedBox(height: 16),
 
-                  // Confirm Email Field
                   TextFormField(
                     controller: _confirmEmailController,
                     validator: (value) {
@@ -137,7 +127,6 @@ class _RegisterViewState extends State<RegisterView> {
 
                   const SizedBox(height: 16),
 
-                  // Password Field
                   TextFormField(
                     controller: _passwordController,
                     validator: (value) {
@@ -158,35 +147,26 @@ class _RegisterViewState extends State<RegisterView> {
 
                   const SizedBox(height: 16),
 
-                  // Register Button
-                  AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    width: _isLoading ? 50 : MediaQuery.of(context).size.width * 0.8, // ✅ Fix Width Issue
+                  SizedBox(
+                    width: double.infinity,
                     height: 50,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-                        backgroundColor: const Color.fromARGB(255, 129, 0, 189),
+                        backgroundColor: const Color.fromARGB(255, 16, 32, 255),
                       ),
                       onPressed: _isLoading ? null : _register,
                       child: _isLoading
                           ? const CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.white))
-                          : const Text(
-                              'Register',
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
-                            ),
+                          : const Text('Register', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white)),
                     ),
                   ),
 
                   const SizedBox(height: 16),
 
-                  // Already have an account? Sign in
                   TextButton(
                     onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginView()), // ✅ Navigates to LoginView
-                      );
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginView()));
                     },
                     child: const Text("Already have an account? Sign in"),
                   ),

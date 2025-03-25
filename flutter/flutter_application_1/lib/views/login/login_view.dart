@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/navigation_bar/navigation_bar.dart';
 import 'package:flutter_application_1/views/login/register_view.dart';
 import 'package:flutter_application_1/services/userservices.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -11,14 +12,9 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       appBar: Navbar(),
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/background.jpg'),
-            fit: BoxFit.cover,
-          ),
-        ),
+        color: Colors.white, // ✅ Đổi nền thành màu trắng
         child: Center(
-          child: SingleChildScrollView( // ✅ Prevents overflow
+          child: SingleChildScrollView(
             child: Container(
               padding: const EdgeInsets.all(32.0),
               constraints: const BoxConstraints(maxWidth: 400),
@@ -79,43 +75,57 @@ class __FormContentState extends State<_FormContent> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  // ✅ Updated login function to include password
   Future<void> _login() async {
-  if (!_formKey.currentState!.validate()) return;
+    if (!_formKey.currentState!.validate()) return;
 
-  setState(() => _isLoading = true);
-  await Future.delayed(const Duration(seconds: 1));
+    setState(() => _isLoading = true);
+    await Future.delayed(const Duration(seconds: 1));
 
-  try {
-    final response = await UserService.login(
-      _usernameController.text.trim(),
-      _passwordController.text.trim(), // ✅ Now sending password
-    );
-
-    // setState(() => _isLoading = false);
-
-    if (response != null) {
-      setState(() => _isLoading = false);
-      ScaffoldMessenger.of(context).showSnackBar(
-
-        SnackBar(content: Text('✅ Login Successfully. Hello ${response['userName']}'), backgroundColor: Colors.green),
+    try {
+      final response = await UserService.login(
+        _usernameController.text.trim(),
+        _passwordController.text.trim(),
       );
-      // TODO: Navigate to another screen if needed
-    } else {
-    await Future.delayed(const Duration(seconds: 3));
+
+      if (response != null) {
+        setState(() => _isLoading = false);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('✅ Login Successfully. Hello ${response['userName']}'), backgroundColor: Colors.green),
+        );
+      } else {
+        await Future.delayed(const Duration(seconds: 3));
+        setState(() => _isLoading = false);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('❌ Login Failed! Please check credentials.'), backgroundColor: Colors.red),
+        );
+      }
+    } catch (e) {
       setState(() => _isLoading = false);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('❌ Login Failed! Please check credentials.'), backgroundColor: Colors.red),
+        SnackBar(content: Text('❌ An error occurred: $e'), backgroundColor: Colors.red),
       );
     }
-  } catch (e) {
-    setState(() => _isLoading = false);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('❌ An error occurred: $e'), backgroundColor: Colors.red),
-    );
   }
-}
 
+  Future<void> _signInWithGoogle() async {
+    setState(() => _isLoading = true);
+
+    final user = await AuthService().signInWithGoogle();
+
+    if (user != null) {
+      await Future.delayed(const Duration(seconds: 1));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('✅ Welcome, ${user.displayName}!'), backgroundColor: Colors.green),
+      );
+    } else {
+      await Future.delayed(const Duration(seconds: 3));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('❌ Google Sign-In Failed'), backgroundColor: Colors.red),
+      );
+    }
+
+    setState(() => _isLoading = false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -160,37 +170,46 @@ class __FormContentState extends State<_FormContent> {
             ),
           ),
           const SizedBox(height: 16),
-          AnimatedContainer(
-            duration: const Duration(milliseconds: 300),
-            width: _isLoading ? 50 : 400, // ✅ Prevents UI break
+          SizedBox(
+            width: double.infinity, // ✅ Chiều rộng bằng với input
             height: 50,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-                backgroundColor: const Color.fromARGB(255, 129, 0, 189),
+                backgroundColor: const Color.fromARGB(255, 16, 32, 255),
               ),
               child: _isLoading
-                  ? const CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                    )
+                  ? const CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(const Color.fromARGB(255, 16, 32, 255)))
                   : const Text(
                       'Sign in',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(210, 255, 255, 255),
-                      ),
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
                     ),
-              onPressed: _isLoading ? null : _login, // ✅ Prevent multiple clicks
+              onPressed: _isLoading ? null : _login,
             ),
+          ),
+          const SizedBox(height: 16),
+          ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+                side: const BorderSide(color: Colors.grey),
+              ),
+            ),
+            icon: Image.asset(
+              '../../../assets/google_logo.png',
+              height: 24,
+            ),
+            label: const Text(
+              'Sign in with Google',
+              style: TextStyle(fontSize: 16, color: Colors.black),
+            ),
+            onPressed: _signInWithGoogle,
           ),
           const SizedBox(height: 16),
           TextButton(
             onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => RegisterView()),
-              );
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => RegisterView()));
             },
             child: const Text("Do not have an account? Register"),
           ),

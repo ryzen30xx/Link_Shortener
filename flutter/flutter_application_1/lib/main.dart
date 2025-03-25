@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/home/home_view.dart';
+import 'package:flutter_application_1/views/login/register_view.dart';
 import 'package:flutter_application_1/views/panel/ManageURLView.dart';
-import 'package:flutter_application_1/views/redirect/redirect_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,14 +27,12 @@ class MyApp extends StatelessWidget {
         Uri uri = Uri.parse(settings.name!);
         if (uri.pathSegments.isNotEmpty) {
           String shortUrl = uri.pathSegments.first;
-          print ('shortUrl: $shortUrl');
-          return MaterialPageRoute(
-            builder: (context) => RedirectPage(shortUrl: shortUrl),
-          );
+          print('shortUrl: $shortUrl');
+          // You can handle the shortUrl logic here if needed, or remove this block entirely.
         }
 
         return MaterialPageRoute(
-          builder: (context) =>  HomeView(),
+          builder: (context) => RegisterView(),
         );
       },
       initialRoute: '/',
