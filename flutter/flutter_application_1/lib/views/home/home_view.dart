@@ -157,7 +157,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
 
-                  SizedBox(width: 50), // ✅ Khoảng cách giữa hai cột
+                  SizedBox(width: 50),
 
                   // 🔹 Slogan (căn phải)
                   Expanded(
