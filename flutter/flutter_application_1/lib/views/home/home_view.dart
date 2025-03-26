@@ -37,7 +37,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Navbar(), // Add the navigation bar here
+      appBar: Navbar(),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -47,99 +47,135 @@ class _HomeViewState extends State<HomeView> {
         ),
         child: LayoutBuilder(
           builder: (context, constraints) {
-            // 🔹 Improved width responsiveness
-            double containerWidth = constraints.maxWidth * 0.5; // Default: 50% of screen width
+            double containerWidth = constraints.maxWidth * 0.15;
             if (constraints.maxWidth < 900) {
-              containerWidth = constraints.maxWidth * 0.7; // Medium screens: 70% width
+              containerWidth = constraints.maxWidth * 0.5;
             }
             if (constraints.maxWidth < 600) {
-              containerWidth = constraints.maxWidth * 0.9; // Small screens: 90% width
+              containerWidth = constraints.maxWidth * 0.8;
             }
 
-            return Center(
-              child: Container(
-                width: containerWidth,
-                padding: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
-                ),
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      SizedBox(height: 10),
-                      TextField(
-                        controller: _urlController,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: "Enter URL",
-                          labelText: "Long Link", // Added label text
-                          filled: true,
-                          fillColor: Colors.white,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: TextField(
-                              controller: TextEditingController(text: _selectedDomain),
-                              readOnly: true, // Make it uneditable
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                filled: true,
-                                fillColor: Colors.white,
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: 10),
-                          Expanded(
-                            child: TextField(
-                              controller: _aliasController,
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'Enter alias',
-                                labelText: 'Enter alias',
-                                filled: true,
-                                fillColor: Colors.white,
-                              ),
-                            ),
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  // 🔹 Khung nhập link (căn trái)
+                  Expanded(
+                    flex: 4,
+                    child: Container(
+                      width: containerWidth,
+                      padding: EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 10,
+                            spreadRadius: 5,
+                            offset: Offset(7, 7),
                           ),
                         ],
                       ),
-                      SizedBox(height: 20),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 50,
-                        child: ElevatedButton(
-                          onPressed: _shortenUrl,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 135, 0, 139),
-                            foregroundColor: Colors.white,
-                          ),
-                          child: Text('Shorten URL', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                        ),
-                      ),
-                      SizedBox(height: 30),
-                      if (_shortenedUrl != null)
-                        Card(
-                          color: Colors.white,
-                          child: Padding(
-                            padding: const EdgeInsets.all(14.0),
-                            child: Column(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: <Widget>[
+                            SizedBox(height: 10),
+                            TextField(
+                              controller: _urlController,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: "Enter URL",
+                                labelText: "Long Link",
+                                filled: true,
+                                fillColor: Colors.white,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Row(
                               children: [
-                                Text('Success!', style: TextStyle(color: Color.fromARGB(255, 133, 2, 185), fontWeight: FontWeight.bold)),
-                                SelectableText(_shortenedUrl!, style: TextStyle(color: Colors.blue)),
+                                Expanded(
+                                  child: TextField(
+                                    controller: TextEditingController(text: _selectedDomain),
+                                    readOnly: true,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 10),
+                                Expanded(
+                                  child: TextField(
+                                    controller: _aliasController,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      hintText: 'Enter alias',
+                                      labelText: 'Enter alias',
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
-                          ),
+                            SizedBox(height: 20),
+                            SizedBox(
+                              width: double.infinity,
+                              height: 50,
+                              child: ElevatedButton(
+                                onPressed: _shortenUrl,
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color.fromARGB(255, 16, 32, 255),
+                                  foregroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                ),
+                                child: Text('Shorten URL', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                              ),
+                            ),
+                            SizedBox(height: 30),
+                            if (_shortenedUrl != null)
+                              Card(
+                                color: Colors.white,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(14.0),
+                                  child: Column(
+                                    children: [
+                                      Text('Success!', style: TextStyle(color: Color.fromARGB(255, 133, 2, 185), fontWeight: FontWeight.bold)),
+                                      SelectableText(_shortenedUrl!, style: TextStyle(color: Colors.blue)),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                          ],
                         ),
-                    ],
+                      ),
+                    ),
                   ),
-                ),
+
+                  SizedBox(width: 50), // ✅ Khoảng cách giữa hai cột
+
+                  // 🔹 Slogan (căn phải)
+                  Expanded(
+                    flex: 6, // ✅ Chiếm 60% màn hình
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Shorten your links instantly",
+                        style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             );
           },

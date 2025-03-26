@@ -12,7 +12,7 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       appBar: Navbar(),
       body: Container(
-        color: Colors.white, // ✅ Đổi nền thành màu trắng
+        color: Colors.white,
         child: Center(
           child: SingleChildScrollView(
             child: Container(
@@ -21,7 +21,10 @@ class LoginView extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
-                boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
+                boxShadow: [BoxShadow(color: Colors.black26, 
+                blurRadius: 10,
+                spreadRadius: 5,
+                offset: const Offset(7, 7),)],
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -89,18 +92,21 @@ class __FormContentState extends State<_FormContent> {
 
       if (response != null) {
         setState(() => _isLoading = false);
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('✅ Login Successfully. Hello ${response['userName']}'), backgroundColor: Colors.green),
         );
       } else {
         await Future.delayed(const Duration(seconds: 3));
         setState(() => _isLoading = false);
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('❌ Login Failed! Please check credentials.'), backgroundColor: Colors.red),
         );
       }
     } catch (e) {
       setState(() => _isLoading = false);
+        // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('❌ An error occurred: $e'), backgroundColor: Colors.red),
       );
@@ -114,11 +120,13 @@ class __FormContentState extends State<_FormContent> {
 
     if (user != null) {
       await Future.delayed(const Duration(seconds: 1));
+        // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('✅ Welcome, ${user.displayName}!'), backgroundColor: Colors.green),
       );
     } else {
       await Future.delayed(const Duration(seconds: 3));
+        // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('❌ Google Sign-In Failed'), backgroundColor: Colors.red),
       );
@@ -178,13 +186,14 @@ class __FormContentState extends State<_FormContent> {
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
                 backgroundColor: const Color.fromARGB(255, 16, 32, 255),
               ),
+              onPressed: _isLoading ? null : _login,
+      
               child: _isLoading
-                  ? const CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(const Color.fromARGB(255, 16, 32, 255)))
+                  ? const CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>( Color.fromARGB(255, 16, 32, 255)))
                   : const Text(
                       'Sign in',
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
                     ),
-              onPressed: _isLoading ? null : _login,
             ),
           ),
           const SizedBox(height: 16),

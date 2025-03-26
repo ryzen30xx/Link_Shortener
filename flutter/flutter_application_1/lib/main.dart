@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: (settings) {
         if (settings.name == null || settings.name == '/') {
           return MaterialPageRoute(
-            builder: (context) => ManageURLsView(),
+            builder: (context) => HomeView(),
           );
         }
 
