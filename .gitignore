@@ -1,5 +1,10 @@
 .git
 FlutterWebAPI/bin/
 FlutterWebAPI/obj/
+<<<<<<< HEAD
 API/appsettings.json
 .gitignore
+=======
+
+.DS_Store
+>>>>>>> 273bf85c79c80670e9f4bb4d4e02de7438fd72c1

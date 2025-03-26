@@ -67,7 +67,7 @@ class _HomeViewState extends State<HomeView> {
                       width: containerWidth,
                       padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: const Color.fromARGB(255, 33, 33, 33),
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
@@ -87,9 +87,10 @@ class _HomeViewState extends State<HomeView> {
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(),
                                 hintText: "Enter URL",
-                                labelText: "Long Link",
+                                labelText: "Link",
                                 filled: true,
-                                fillColor: Colors.white,
+                                fillColor: const Color.fromARGB(255, 40, 40, 40),
+                                // Change here
                               ),
                             ),
                             SizedBox(height: 10),
