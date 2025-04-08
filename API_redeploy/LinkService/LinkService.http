@@ -1,4 +1,4 @@
-@LinkService_HostAddress = http://localhost:5215
+@LinkService_HostAddress = http://localhost:5064
 
 GET {{LinkService_HostAddress}}/weatherforecast/
 Accept: application/json

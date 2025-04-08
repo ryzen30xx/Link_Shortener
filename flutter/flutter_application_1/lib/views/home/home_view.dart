@@ -87,11 +87,13 @@ class _HomeViewState extends State<HomeView> {
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(),
                                 hintText: "Enter URL",
+                                hintStyle: TextStyle(color: Colors.white), // ✅ Màu trắng cho hintText
                                 labelText: "Link",
+                                labelStyle: TextStyle(color: const Color.fromARGB(255, 167, 167, 167)), // ✅ Màu trắng cho labelText
                                 filled: true,
                                 fillColor: const Color.fromARGB(255, 40, 40, 40),
-                                // Change here
                               ),
+                              style: TextStyle(color: Colors.white), // ✅ Màu chữ trắng
                             ),
                             SizedBox(height: 10),
                             Row(
@@ -103,8 +105,9 @@ class _HomeViewState extends State<HomeView> {
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(),
                                       filled: true,
-                                      fillColor: Colors.white,
+                                      fillColor: const Color.fromARGB(255, 40, 40, 40),
                                     ),
+                                    style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
                                   ),
                                 ),
                                 SizedBox(width: 10),
@@ -114,10 +117,13 @@ class _HomeViewState extends State<HomeView> {
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(),
                                       hintText: 'Enter alias',
-                                      labelText: 'Enter alias',
+                                      hintStyle: TextStyle(color: Colors.white), // ✅ Màu trắng cho hintText
+                                      labelText: 'Alias',
+                                      labelStyle: TextStyle(color: const Color.fromARGB(255, 167, 167, 167)), // ✅ Màu trắng cho labelText
                                       filled: true,
-                                      fillColor: Colors.white,
+                                      fillColor: const Color.fromARGB(255, 40, 40, 40),
                                     ),
+                                    style: TextStyle(color: Colors.white), // ✅ Màu chữ trắng
                                   ),
                                 ),
                               ],

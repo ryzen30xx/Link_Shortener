@@ -8,10 +8,10 @@ using API.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ Load configuration settings
+// Load configuration settings
 var configuration = builder.Configuration;
 
-// ✅ Enable CORS to allow Flutter to connect
+// Enable CORS to allow Flutter to connect
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllOrigins",
@@ -20,10 +20,10 @@ builder.Services.AddCors(options =>
                         .AllowAnyHeader()); // Allows any headers (like Authorization)
 });
 
-// ✅ Register controllers
+// Register controllers
 builder.Services.AddControllers();
 
-// ✅ Enable Swagger for API documentation
+// Enable Swagger for API documentation
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -34,27 +34,26 @@ builder.Services.AddDbContext<ApiDbContext>(options =>
     )
 );
 
-
 var app = builder.Build();
 
-// ✅ Enable CORS before routing
+// Enable CORS before routing
 app.UseCors("AllowAllOrigins");
 
-// ✅ Enable Swagger UI in Development Mode
+// Enable Swagger UI in Development Mode
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// ✅ Force HTTPS Redirection
+// Force HTTPS Redirection
 app.UseHttpsRedirection();
 
-// ✅ Authentication & Authorization
+// Authentication & Authorization
 app.UseAuthorization();
 
-// ✅ Map API Controllers
+// Map API Controllers
 app.MapControllers();
 
-// ✅ Run the API
+// Run the API
 app.Run();

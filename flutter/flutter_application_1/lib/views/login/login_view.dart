@@ -12,32 +12,42 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       appBar: Navbar(),
       body: Container(
-        color: Colors.white,
-        child: Center(
-          child: SingleChildScrollView(
-            child: Container(
-              padding: const EdgeInsets.all(32.0),
-              constraints: const BoxConstraints(maxWidth: 400),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [BoxShadow(color: Colors.black26, 
-                blurRadius: 10,
-                spreadRadius: 5,
-                offset: const Offset(7, 7),)],
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: const [
-                  _Logo(),
-                  SizedBox(height: 20),
-                  _FormContent(),
-                ],
-              ),
+  decoration: BoxDecoration(
+    image: DecorationImage(
+      image: AssetImage('assets/background.jpg'), // Đặt hình nền
+      fit: BoxFit.cover, // Hiển thị hình nền toàn màn hình
+    ),
+  ),
+  child: Center(
+    child: SingleChildScrollView(
+      child: Container(
+        padding: const EdgeInsets.all(32.0),
+        constraints: const BoxConstraints(maxWidth: 400),
+        decoration: BoxDecoration(
+          // ignore: deprecated_member_use
+          color: Colors.white.withOpacity(0.9), // Làm mờ nền của form
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 10,
+              spreadRadius: 5,
+              offset: const Offset(7, 7),
             ),
-          ),
+          ],
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: const [
+            _Logo(),
+            SizedBox(height: 20),
+            _FormContent(),
+          ],
         ),
       ),
+    ),
+  ),
+),
     );
   }
 }
