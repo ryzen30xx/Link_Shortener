@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlService", "Shortener_API\UrlService.csproj", "{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedirectService", "RedirectService\RedirectService.csproj", "{F755474A-E194-45E2-AC55-7E433F5C4019}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F755474A-E194-45E2-AC55-7E433F5C4019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F755474A-E194-45E2-AC55-7E433F5C4019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F755474A-E194-45E2-AC55-7E433F5C4019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F755474A-E194-45E2-AC55-7E433F5C4019}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E8AF89C-82F0-4FC1-858D-9ED2A76D577C}
+	EndGlobalSection
+EndGlobal

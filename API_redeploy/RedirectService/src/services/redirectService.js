@@ -14,9 +14,9 @@ async function getOriginalUrl(shortCode) {
       .request()
       .input("shortCode", sql.VarChar(50), shortCode)
       .query(`
-        SELECT OriginalUrl, ExpiredDate
+        SELECT OriginalUrl, ExpiryDate, ClickCount
         FROM Links
-        WHERE ShortenedUrl = @shortCode
+        WHERE ShortCode = @shortCode
       `)
 
     if (result.recordset.length === 0) {
@@ -26,12 +26,23 @@ async function getOriginalUrl(shortCode) {
     const link = result.recordset[0]
 
     // Check if link has expired
-    if (link.ExpiredDate && new Date(link.ExpiredDate) < new Date()) {
+    if (link.ExpiryDate && new Date(link.ExpiryDate) < new Date()) {
       logger.info(`Link ${shortCode} has expired`)
       return null
     }
 
-    // Log access for analytics (if needed)
+    // Update click count
+    await pool
+      .request()
+      .input("shortCode", sql.VarChar(50), shortCode)
+      .query(`
+        UPDATE Links
+        SET ClickCount = ClickCount + 1, 
+            LastAccessedDate = GETDATE()
+        WHERE ShortCode = @shortCode
+      `)
+
+    // Log access for analytics
     await logLinkAccess(shortCode)
 
     return link.OriginalUrl
@@ -54,7 +65,7 @@ async function logLinkAccess(shortCode) {
       .input("ipAddress", sql.VarChar(50), "0.0.0.0") // In a real app, you'd get this from the request
       .input("userAgent", sql.VarChar(255), "Unknown") // In a real app, you'd get this from the request
       .query(`
-        INSERT INTO LinkClicks (ShortenedUrl, AccessDate, IPAddress, UserAgent)
+        INSERT INTO LinkClicks (ShortCode, AccessDate, IPAddress, UserAgent)
         VALUES (@shortCode, @accessDate, @ipAddress, @userAgent)
       `)
   } catch (error) {
@@ -75,7 +86,7 @@ async function checkAndDeleteExpiredLink(shortCode) {
       .request()
       .input("shortCode", sql.VarChar(50), shortCode)
       .query(`
-        SELECT ExpiredDate
+        SELECT ExpiryDate
         FROM Links
         WHERE ShortenedUrl = @shortCode
       `)
@@ -87,13 +98,13 @@ async function checkAndDeleteExpiredLink(shortCode) {
     const link = result.recordset[0]
 
     // Check if link has expired
-    if (link.ExpiredDate && new Date(link.ExpiredDate) < new Date()) {
+    if (link.ExpiryDate && new Date(link.ExpiryDate) < new Date()) {
       await pool
         .request()
         .input("shortCode", sql.VarChar(50), shortCode)
         .query(`
           DELETE FROM Links
-          WHERE ShortenedUrl = @shortCode
+          WHERE ShortCode = @shortCode
         `)
 
       logger.info(`Deleted expired link: ${shortCode}`)

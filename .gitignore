@@ -8,3 +8,9 @@ API/appsettings.json
 
 .DS_Store
 >>>>>>> 273bf85c79c80670e9f4bb4d4e02de7438fd72c1
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env

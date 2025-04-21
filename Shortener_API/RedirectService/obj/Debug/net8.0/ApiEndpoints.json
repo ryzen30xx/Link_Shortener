@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "RedirectService.Controllers.RedirectController",
+    "Method": "Redirect",
+    "RelativePath": "{shortCode}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "shortCode",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

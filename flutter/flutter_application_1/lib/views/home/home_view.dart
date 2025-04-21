@@ -107,7 +107,7 @@ class _HomeViewState extends State<HomeView> {
                                       filled: true,
                                       fillColor: const Color.fromARGB(255, 40, 40, 40),
                                     ),
-                                    style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)),
+                                    style: TextStyle(color: const Color.fromARGB(255, 111, 108, 108)),
                                   ),
                                 ),
                                 SizedBox(width: 10),

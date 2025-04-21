@@ -104,21 +104,21 @@ class __FormContentState extends State<_FormContent> {
         setState(() => _isLoading = false);
         // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('✅ Login Successfully. Hello ${response['userName']}'), backgroundColor: Colors.green),
+          SnackBar(content: Text('Login Successfully. Hello ${response['userName']}'), backgroundColor: Colors.green),
         );
       } else {
         await Future.delayed(const Duration(seconds: 3));
         setState(() => _isLoading = false);
         // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('❌ Login Failed! Please check credentials.'), backgroundColor: Colors.red),
+          const SnackBar(content: Text('Login Failed! Please check credentials.'), backgroundColor: Colors.red),
         );
       }
     } catch (e) {
       setState(() => _isLoading = false);
         // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('❌ An error occurred: $e'), backgroundColor: Colors.red),
+        SnackBar(content: Text('An error occurred: $e'), backgroundColor: Colors.red),
       );
     }
   }
@@ -132,13 +132,13 @@ class __FormContentState extends State<_FormContent> {
       await Future.delayed(const Duration(seconds: 1));
         // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('✅ Welcome, ${user.displayName}!'), backgroundColor: Colors.green),
+        SnackBar(content: Text('Welcome, ${user.displayName}!'), backgroundColor: Colors.green),
       );
     } else {
       await Future.delayed(const Duration(seconds: 3));
         // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('❌ Google Sign-In Failed'), backgroundColor: Colors.red),
+        const SnackBar(content: Text('Google Sign-In Failed'), backgroundColor: Colors.red),
       );
     }
 
@@ -189,7 +189,7 @@ class __FormContentState extends State<_FormContent> {
           ),
           const SizedBox(height: 16),
           SizedBox(
-            width: double.infinity, // ✅ Chiều rộng bằng với input
+            width: double.infinity, // Chiều rộng bằng với input
             height: 50,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(

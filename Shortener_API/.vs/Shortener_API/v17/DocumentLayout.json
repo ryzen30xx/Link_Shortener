@@ -1,0 +1,258 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\amd201\\Shortener_API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F755474A-E194-45E2-AC55-7E433F5C4019}|RedirectService\\RedirectService.csproj|c:\\amd201\\shortener_api\\redirectservice\\controllers\\redirectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F755474A-E194-45E2-AC55-7E433F5C4019}|RedirectService\\RedirectService.csproj|solutionrelative:redirectservice\\controllers\\redirectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|c:\\amd201\\shortener_api\\shortener_api\\services\\urlmanagementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|solutionrelative:shortener_api\\services\\urlmanagementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\Shortener_API.csproj|c:\\amd201\\shortener_api\\shortener_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\Shortener_API.csproj|solutionrelative:shortener_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\Shortener_API.csproj|c:\\amd201\\shortener_api\\shortener_api\\data\\urldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\Shortener_API.csproj|solutionrelative:shortener_api\\data\\urldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F755474A-E194-45E2-AC55-7E433F5C4019}|RedirectService\\RedirectService.csproj|c:\\amd201\\shortener_api\\redirectservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F755474A-E194-45E2-AC55-7E433F5C4019}|RedirectService\\RedirectService.csproj|solutionrelative:redirectservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|c:\\amd201\\shortener_api\\shortener_api\\controllers\\shortenedurl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|solutionrelative:shortener_api\\controllers\\shortenedurl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F755474A-E194-45E2-AC55-7E433F5C4019}|RedirectService\\RedirectService.csproj|c:\\amd201\\shortener_api\\redirectservice\\services\\redirectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F755474A-E194-45E2-AC55-7E433F5C4019}|RedirectService\\RedirectService.csproj|solutionrelative:redirectservice\\services\\redirectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F755474A-E194-45E2-AC55-7E433F5C4019}|RedirectService\\RedirectService.csproj|c:\\amd201\\shortener_api\\redirectservice\\services\\iredirectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F755474A-E194-45E2-AC55-7E433F5C4019}|RedirectService\\RedirectService.csproj|solutionrelative:redirectservice\\services\\iredirectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|c:\\amd201\\shortener_api\\shortener_api\\controllers\\urlscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|solutionrelative:shortener_api\\controllers\\urlscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|c:\\amd201\\shortener_api\\shortener_api\\dtos\\pagedresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|solutionrelative:shortener_api\\dtos\\pagedresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|c:\\amd201\\shortener_api\\shortener_api\\dtos\\shortenedurldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|solutionrelative:shortener_api\\dtos\\shortenedurldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|c:\\amd201\\shortener_api\\shortener_api\\dtos\\createurldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|solutionrelative:shortener_api\\dtos\\createurldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|c:\\amd201\\shortener_api\\shortener_api\\urlservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|solutionrelative:shortener_api\\urlservice.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|c:\\amd201\\shortener_api\\shortener_api\\services\\iurlservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B3BB1AE-9A1E-4A5D-BFB7-CB56D9F0B10B}|Shortener_API\\UrlService.csproj|solutionrelative:shortener_api\\services\\iurlservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RedirectController.cs",
+              "DocumentMoniker": "C:\\amd201\\Shortener_API\\RedirectService\\Controllers\\RedirectController.cs",
+              "RelativeDocumentMoniker": "RedirectService\\Controllers\\RedirectController.cs",
+              "ToolTip": "C:\\amd201\\Shortener_API\\RedirectService\\Controllers\\RedirectController.cs",
+              "RelativeToolTip": "RedirectService\\Controllers\\RedirectController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T11:14:11.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RedirectService.cs",
+              "DocumentMoniker": "C:\\amd201\\Shortener_API\\RedirectService\\Services\\RedirectService.cs",
+              "RelativeDocumentMoniker": "RedirectService\\Services\\RedirectService.cs",
+              "ToolTip": "C:\\amd201\\Shortener_API\\RedirectService\\Services\\RedirectService.cs",
+              "RelativeToolTip": "RedirectService\\Services\\RedirectService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T11:13:37.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\amd201\\Shortener_API\\RedirectService\\Program.cs",
+              "RelativeDocumentMoniker": "RedirectService\\Program.cs",
+              "ToolTip": "C:\\amd201\\Shortener_API\\RedirectService\\Program.cs",
+              "RelativeToolTip": "RedirectService\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAwwDAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T11:11:31.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ShortenedUrl.cs",
+              "DocumentMoniker": "C:\\amd201\\Shortener_API\\Shortener_API\\Controllers\\ShortenedUrl.cs",
+              "RelativeDocumentMoniker": "Shortener_API\\Controllers\\ShortenedUrl.cs",
+              "ToolTip": "C:\\amd201\\Shortener_API\\Shortener_API\\Controllers\\ShortenedUrl.cs",
+              "RelativeToolTip": "Shortener_API\\Controllers\\ShortenedUrl.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T10:52:18.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\amd201\\Shortener_API\\Shortener_API\\Program.cs",
+              "RelativeDocumentMoniker": "Shortener_API\\Program.cs",
+              "ToolTip": "C:\\amd201\\Shortener_API\\Shortener_API\\Program.cs",
+              "RelativeToolTip": "Shortener_API\\Program.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAuwBYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T10:44:05.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UrlManagementService.cs",
+              "DocumentMoniker": "C:\\amd201\\Shortener_API\\Shortener_API\\Services\\UrlManagementService.cs",
+              "RelativeDocumentMoniker": "Shortener_API\\Services\\UrlManagementService.cs",
+              "ToolTip": "C:\\amd201\\Shortener_API\\Shortener_API\\Services\\UrlManagementService.cs",
+              "RelativeToolTip": "Shortener_API\\Services\\UrlManagementService.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAYwCAAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T10:56:05.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UrlDbContext.cs",
+              "DocumentMoniker": "C:\\amd201\\Shortener_API\\Shortener_API\\Data\\UrlDbContext.cs",
+              "RelativeDocumentMoniker": "Shortener_API\\Data\\UrlDbContext.cs",
+              "ToolTip": "C:\\amd201\\Shortener_API\\Shortener_API\\Data\\UrlDbContext.cs",
+              "RelativeToolTip": "Shortener_API\\Data\\UrlDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T10:47:24.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IRedirectService.cs",
+              "DocumentMoniker": "C:\\amd201\\Shortener_API\\RedirectService\\Services\\IRedirectService.cs",
+              "RelativeDocumentMoniker": "RedirectService\\Services\\IRedirectService.cs",
+              "ToolTip": "C:\\amd201\\Shortener_API\\RedirectService\\Services\\IRedirectService.cs",
+              "RelativeToolTip": "RedirectService\\Services\\IRedirectService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T11:12:54.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UrlsController.cs",
+              "DocumentMoniker": "C:\\amd201\\Shortener_API\\Shortener_API\\Controllers\\UrlsController.cs",
+              "RelativeDocumentMoniker": "Shortener_API\\Controllers\\UrlsController.cs",
+              "ToolTip": "C:\\amd201\\Shortener_API\\Shortener_API\\Controllers\\UrlsController.cs",
+              "RelativeToolTip": "Shortener_API\\Controllers\\UrlsController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAFcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T11:00:49.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PagedResultDto.cs",
+              "DocumentMoniker": "C:\\amd201\\Shortener_API\\Shortener_API\\DTOs\\PagedResultDto.cs",
+              "RelativeDocumentMoniker": "Shortener_API\\DTOs\\PagedResultDto.cs",
+              "ToolTip": "C:\\amd201\\Shortener_API\\Shortener_API\\DTOs\\PagedResultDto.cs",
+              "RelativeToolTip": "Shortener_API\\DTOs\\PagedResultDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T10:59:07.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ShortenedUrlDto.cs",
+              "DocumentMoniker": "C:\\amd201\\Shortener_API\\Shortener_API\\DTOs\\ShortenedUrlDto.cs",
+              "RelativeDocumentMoniker": "Shortener_API\\DTOs\\ShortenedUrlDto.cs",
+              "ToolTip": "C:\\amd201\\Shortener_API\\Shortener_API\\DTOs\\ShortenedUrlDto.cs",
+              "RelativeToolTip": "Shortener_API\\DTOs\\ShortenedUrlDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T10:58:21.936Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CreateUrlDto.cs",
+              "DocumentMoniker": "C:\\amd201\\Shortener_API\\Shortener_API\\DTOs\\CreateUrlDto.cs",
+              "RelativeDocumentMoniker": "Shortener_API\\DTOs\\CreateUrlDto.cs",
+              "ToolTip": "C:\\amd201\\Shortener_API\\Shortener_API\\DTOs\\CreateUrlDto.cs",
+              "RelativeToolTip": "Shortener_API\\DTOs\\CreateUrlDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T10:57:14.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IUrlService.cs",
+              "DocumentMoniker": "C:\\amd201\\Shortener_API\\Shortener_API\\Services\\IUrlService.cs",
+              "RelativeDocumentMoniker": "Shortener_API\\Services\\IUrlService.cs",
+              "ToolTip": "C:\\amd201\\Shortener_API\\Shortener_API\\Services\\IUrlService.cs",
+              "RelativeToolTip": "Shortener_API\\Services\\IUrlService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T10:55:02.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UrlService",
+              "DocumentMoniker": "C:\\amd201\\Shortener_API\\Shortener_API\\UrlService.csproj",
+              "RelativeDocumentMoniker": "Shortener_API\\UrlService.csproj",
+              "ToolTip": "C:\\amd201\\Shortener_API\\Shortener_API\\UrlService.csproj",
+              "RelativeToolTip": "Shortener_API\\UrlService.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-21T10:53:16.257Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
