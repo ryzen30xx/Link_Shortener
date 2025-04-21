@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/home/home_view.dart';
 import 'package:flutter_application_1/views/login/register_view.dart';
-import 'package:flutter_application_1/views/panel/ManageURLView.dart';
 
 void main() {
   runApp(const MyApp());

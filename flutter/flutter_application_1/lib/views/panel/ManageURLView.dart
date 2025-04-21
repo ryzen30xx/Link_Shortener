@@ -71,7 +71,7 @@ class _ManageURLsViewState extends State<ManageURLsView> {
                     child: DataTable(
                       columnSpacing: 20,
                       border: TableBorder.all(color: Colors.black26), // Softer border color
-                      headingRowColor: MaterialStateColor.resolveWith((states) => Colors.purple.shade300),
+                      headingRowColor: WidgetStateColor.resolveWith((states) => Colors.purple.shade300),
                       columns: [
                         DataColumn(label: Text('Origin URL', style: TextStyle(color: Colors.black87, fontWeight: FontWeight.bold))),
                         DataColumn(label: Text('Short URL', style: TextStyle(color: Colors.black87, fontWeight: FontWeight.bold))),
