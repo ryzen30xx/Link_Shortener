@@ -1,0 +1,34 @@
+[
+  {
+    "ContainingType": "LinkService.Controllers.LinkController",
+    "Method": "ShortenLink",
+    "RelativePath": "api/Link/shorten",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "LinkService.LinkDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LinkService.Controllers.LinkController",
+    "Method": "RedirectToOriginal",
+    "RelativePath": "l/{code}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

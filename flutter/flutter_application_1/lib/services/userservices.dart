@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 class UserService {
   static const String baseUrl = 'http://localhost:5254/api/Users'; 
 
-  // ✅ Updated to check both username and password
+  // Updated to check both username and password
   static Future<Map<String, dynamic>?> login(String username, String password) async {
     final url = Uri.parse('$baseUrl/login'); // Adjust API endpoint if needed
 

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "P40eIUEtMj1AJAB+arpPDdbXtTRsSQOOsYqdanU3RbE=",
+  "Source": "LinkService",
+  "BasePath": "_content/LinkService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
