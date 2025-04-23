@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/home/home_view.dart';
-import 'package:flutter_application_1/views/login/register_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +30,7 @@ class MyApp extends StatelessWidget {
         }
 
         return MaterialPageRoute(
-          builder: (context) => RegisterView(),
+          builder: (context) => HomeView(), // Default to HomeView for unknown routes.
         );
       },
       initialRoute: '/',

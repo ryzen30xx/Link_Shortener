@@ -1,27 +1,19 @@
-class Urls {
-  // final int URLId;
-  final String Origin_url;
-  final String Short_url;
-  final int userName;
-  final DateTime Create_date;
-  final DateTime Expired_date;
+class UrlRequest {
+  final String originalUrl;
 
-  Urls({
-    // required this.URLId,
-    required this.Origin_url,
-    required this.Short_url,
-    required this.userName,
-    required this.Create_date,
-    required this.Expired_date,
-  });
+  UrlRequest({required this.originalUrl});
 
   Map<String, dynamic> toJson() {
-    return {
-      'Origin_url': Origin_url,
-      'Short_url': Short_url,
-      'userName': userName,
-      'Create_date': Create_date,
-      'Expired_date': Expired_date,
-    };
-    }
+    return {'originalUrl': originalUrl};
   }
+}
+
+class UrlResponse {
+  final String shortUrl;
+
+  UrlResponse({required this.shortUrl});
+
+  factory UrlResponse.fromJson(Map<String, dynamic> json) {
+    return UrlResponse(shortUrl: json['shortUrl']);
+  }
+}

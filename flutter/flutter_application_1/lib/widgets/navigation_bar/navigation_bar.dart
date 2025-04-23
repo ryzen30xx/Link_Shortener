@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/home/home_view.dart';
-import 'package:flutter_application_1/views/login/login_view.dart';
+// import 'package:flutter_application_1/views/login/login_view.dart';
 
 class Navbar extends StatelessWidget implements PreferredSizeWidget {
   @override
@@ -26,8 +26,7 @@ class Navbar extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       actions: [
-        _navButton(context, 'Home', HomeView()),
-        _navButton(context, 'Sign In', LoginView()),
+        _navButton(context, 'Home', HomeView())
       ],
       flexibleSpace: Container(
         decoration: BoxDecoration(

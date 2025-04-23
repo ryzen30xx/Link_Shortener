@@ -1,21 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/navigation_bar/navigation_bar.dart';
+import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
-void main() {
-  runApp(LinkShortenerApp());
-}
-
-class LinkShortenerApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Link Shortener',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(),
-      home: HomeView(),
-    );
-  }
-}
+import 'package:flutter_application_1/services/urlservices.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -25,13 +14,58 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   final TextEditingController _urlController = TextEditingController();
   final TextEditingController _aliasController = TextEditingController();
-  String _selectedDomain = 'shortener.isharoverwhite.com';
+  final UrlService _urlService = UrlService();
+
+  String _selectedDomain = 'localhost';
   String? _shortenedUrl;
 
-  void _shortenUrl() {
-    setState(() {
-      _shortenedUrl = '$_selectedDomain/${_aliasController.text.isNotEmpty ? _aliasController.text : "generated_code"}';
-    });
+  Future<void> _shortenUrl() async {
+    final originalUrl = _urlController.text.trim();
+    if (originalUrl.isEmpty) return;
+
+    final shortUrl = await _urlService.shortenUrl(originalUrl);
+
+    if (shortUrl != null) {
+      setState(() {
+        _shortenedUrl = shortUrl;
+      });
+      _showResultDialog(shortUrl);
+    } else {
+      Fluttertoast.showToast(msg: "Failed to shorten URL");
+    }
+  }
+
+  void _showResultDialog(String shortUrl) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Shortened Link"),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SelectableText(shortUrl, style: TextStyle(color: Colors.blue)),
+              SizedBox(height: 10),
+              QrImageView(
+                data: shortUrl,
+                version: QrVersions.auto,
+                size: 150,
+              ),
+              SizedBox(height: 10),
+              ElevatedButton.icon(
+                onPressed: () {
+                  Clipboard.setData(ClipboardData(text: shortUrl));
+                  Navigator.pop(context);
+                  Fluttertoast.showToast(msg: "Copied to clipboard");
+                },
+                icon: Icon(Icons.copy),
+                label: Text("Copy"),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -60,7 +94,6 @@ class _HomeViewState extends State<HomeView> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // 🔹 Khung nhập link (căn trái)
                   Expanded(
                     flex: 4,
                     child: Container(
@@ -87,13 +120,13 @@ class _HomeViewState extends State<HomeView> {
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(),
                                 hintText: "Enter URL",
-                                hintStyle: TextStyle(color: Colors.white), // ✅ Màu trắng cho hintText
+                                hintStyle: TextStyle(color: Colors.white),
                                 labelText: "Link",
-                                labelStyle: TextStyle(color: const Color.fromARGB(255, 167, 167, 167)), // ✅ Màu trắng cho labelText
+                                labelStyle: TextStyle(color: Color.fromARGB(255, 167, 167, 167)),
                                 filled: true,
-                                fillColor: const Color.fromARGB(255, 40, 40, 40),
+                                fillColor: Color.fromARGB(255, 40, 40, 40),
                               ),
-                              style: TextStyle(color: Colors.white), // ✅ Màu chữ trắng
+                              style: TextStyle(color: Colors.white),
                             ),
                             SizedBox(height: 10),
                             Row(
@@ -105,9 +138,9 @@ class _HomeViewState extends State<HomeView> {
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(),
                                       filled: true,
-                                      fillColor: const Color.fromARGB(255, 40, 40, 40),
+                                      fillColor: Color.fromARGB(255, 40, 40, 40),
                                     ),
-                                    style: TextStyle(color: const Color.fromARGB(255, 111, 108, 108)),
+                                    style: TextStyle(color: Color.fromARGB(255, 111, 108, 108)),
                                   ),
                                 ),
                                 SizedBox(width: 10),
@@ -117,13 +150,13 @@ class _HomeViewState extends State<HomeView> {
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(),
                                       hintText: 'Enter alias',
-                                      hintStyle: TextStyle(color: Colors.white), // ✅ Màu trắng cho hintText
+                                      hintStyle: TextStyle(color: Colors.white),
                                       labelText: 'Alias',
-                                      labelStyle: TextStyle(color: const Color.fromARGB(255, 167, 167, 167)), // ✅ Màu trắng cho labelText
+                                      labelStyle: TextStyle(color: Color.fromARGB(255, 167, 167, 167)),
                                       filled: true,
-                                      fillColor: const Color.fromARGB(255, 40, 40, 40),
+                                      fillColor: Color.fromARGB(255, 40, 40, 40),
                                     ),
-                                    style: TextStyle(color: Colors.white), // ✅ Màu chữ trắng
+                                    style: TextStyle(color: Colors.white),
                                   ),
                                 ),
                               ],
@@ -141,34 +174,20 @@ class _HomeViewState extends State<HomeView> {
                                     borderRadius: BorderRadius.circular(5),
                                   ),
                                 ),
-                                child: Text('Shorten URL', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                              ),
-                            ),
-                            SizedBox(height: 30),
-                            if (_shortenedUrl != null)
-                              Card(
-                                color: Colors.white,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(14.0),
-                                  child: Column(
-                                    children: [
-                                      Text('Success!', style: TextStyle(color: Color.fromARGB(255, 133, 2, 185), fontWeight: FontWeight.bold)),
-                                      SelectableText(_shortenedUrl!, style: TextStyle(color: Colors.blue)),
-                                    ],
-                                  ),
+                                child: Text(
+                                  'Shorten URL',
+                                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                                 ),
                               ),
+                            ),
                           ],
                         ),
                       ),
                     ),
                   ),
-
                   SizedBox(width: 50),
-
-                  // 🔹 Slogan (căn phải)
                   Expanded(
-                    flex: 6, // ✅ Chiếm 60% màn hình
+                    flex: 6,
                     child: Align(
                       alignment: Alignment.center,
                       child: Text(
@@ -176,7 +195,7 @@ class _HomeViewState extends State<HomeView> {
                         style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
-                          color: const Color.fromARGB(255, 255, 255, 255),
+                          color: Colors.white,
                         ),
                         textAlign: TextAlign.center,
                       ),

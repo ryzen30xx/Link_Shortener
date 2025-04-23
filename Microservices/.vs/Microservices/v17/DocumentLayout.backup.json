@@ -3,10 +3,13 @@
   "WorkspaceRootPath": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\Microservices\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BBB3BD53-16C5-42F1-8AA3-666F2847FDB6}|..\\Gateway\\Gateway.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\gateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{BBB3BD53-16C5-42F1-8AA3-666F2847FDB6}|..\\Gateway\\Gateway.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\gateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBB3BD53-16C5-42F1-8AA3-666F2847FDB6}|..\\Gateway\\Gateway.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\gateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{BBB3BD53-16C5-42F1-8AA3-666F2847FDB6}|..\\Gateway\\Gateway.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\gateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBB3BD53-16C5-42F1-8AA3-666F2847FDB6}|..\\Gateway\\Gateway.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\gateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EC3EDE7A-7BB6-47D6-826F-6D3E5D20BDDB}|LinkService.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\microservices\\controllers\\linkscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,9 +26,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{EC3EDE7A-7BB6-47D6-826F-6D3E5D20BDDB}|LinkService.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\microservices\\microservices.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
       "RelativeMoniker": "D:0:0:{EC3EDE7A-7BB6-47D6-826F-6D3E5D20BDDB}|LinkService.csproj|solutionrelative:microservices.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBB3BD53-16C5-42F1-8AA3-666F2847FDB6}|..\\Gateway\\Gateway.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\gateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BBB3BD53-16C5-42F1-8AA3-666F2847FDB6}|..\\Gateway\\Gateway.csproj|c:\\users\\ryzen30xx\\documents\\github\\link_shortener\\gateway\\gateway.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
@@ -46,11 +46,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Microservices.http",
               "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\Microservices\\Microservices.http",
               "RelativeDocumentMoniker": "Microservices.http",
@@ -58,12 +58,11 @@
               "RelativeToolTip": "Microservices.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-04-22T04:21:23.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T04:21:23.655Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\Microservices\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -71,25 +70,24 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T04:18:38.161Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T04:18:38.161Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\Gateway\\appsettings.json",
               "RelativeDocumentMoniker": "..\\Gateway\\appsettings.json",
               "ToolTip": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\Gateway\\appsettings.json",
               "RelativeToolTip": "..\\Gateway\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-04-22T04:13:53.207Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\Microservices\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -97,38 +95,36 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-22T03:26:13.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T03:26:13.748Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Gateway",
+              "Title": "Gateway.csproj",
               "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\Gateway\\Gateway.csproj",
               "RelativeDocumentMoniker": "..\\Gateway\\Gateway.csproj",
               "ToolTip": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\Gateway\\Gateway.csproj",
               "RelativeToolTip": "..\\Gateway\\Gateway.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-22T03:21:52.461Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T03:21:52.461Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\Gateway\\Program.cs",
               "RelativeDocumentMoniker": "..\\Gateway\\Program.cs",
               "ToolTip": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\Gateway\\Program.cs",
               "RelativeToolTip": "..\\Gateway\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-22T03:04:10.856Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ocelot.json",
               "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\Gateway\\ocelot.json",
               "RelativeDocumentMoniker": "..\\Gateway\\ocelot.json",
@@ -141,7 +137,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "LinksController.cs",
               "DocumentMoniker": "C:\\Users\\ryzen30xx\\Documents\\GitHub\\Link_Shortener\\Microservices\\Controllers\\LinksController.cs",
               "RelativeDocumentMoniker": "Controllers\\LinksController.cs",
@@ -149,8 +145,7 @@
               "RelativeToolTip": "Controllers\\LinksController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T02:53:06.87Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T02:53:06.87Z"
             },
             {
               "$type": "Document",

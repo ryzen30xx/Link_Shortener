@@ -2,22 +2,22 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class UrlService {
-  static const String baseUrl = 'http://localhost:5254/api/URLs';
+  final String _gatewayBaseUrl = 'http://localhost:5002';
 
-  // ✅ Fetch URLs from API
-  static Future<List<Map<String, dynamic>>> fetchURLs() async {
-    try {
-      final response = await http.get(Uri.parse(baseUrl));
+  Future<String?> shortenUrl(String originalUrl) async {
+    final url = Uri.parse('$_gatewayBaseUrl/api/link/shorten');
+    final response = await http.post(
+      url,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode(originalUrl),
+    );
 
-      if (response.statusCode == 200) {
-        return List<Map<String, dynamic>>.from(json.decode(response.body));
-      } else {
-        throw Exception("Failed to load URLs");
-      }
-    } catch (e) {
-      throw Exception("Error: $e");
+    if (response.statusCode == 200) {
+      final responseData = jsonDecode(response.body);
+      return responseData['shortUrl'];
+    } else {
+      print('Failed to shorten URL: ${response.body}');
+      return null;
     }
   }
-
-  
 }
