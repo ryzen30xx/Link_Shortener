@@ -1,6 +1,16 @@
 [
   {
     "ContainingType": "LinkService.Controllers.LinkController",
+    "Method": "GetAllLinks",
+    "RelativePath": "api/Link/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LinkService.Controllers.LinkController",
     "Method": "ShortenLink",
     "RelativePath": "api/Link/shorten",
     "HttpMethod": "POST",

@@ -10,6 +10,6 @@ namespace LinkService.Models
         public string OriginalUrl { get; set; }
         public string ShortenedUrl { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-    }
+    }   
 
 }

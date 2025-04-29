@@ -57,6 +57,18 @@
           }
         }
       }
+    },
+    "/api/Link/all": {
+      "get": {
+        "tags": [
+          "Link"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

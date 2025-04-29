@@ -51,5 +51,22 @@ namespace LinkService.Controllers
 
             return Redirect(link.OriginalUrl);
         }
+
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllLinks()
+        {
+            var links = await _context.Links
+                .Select(l => new
+                {
+                    id = l.Id,
+                    originalUrl = l.OriginalUrl,
+                    shortUrl = _baseShortUrl + l.ShortenedUrl,
+                    createdAt = l.CreatedAt
+                })
+                .ToListAsync();
+
+            return Ok(links);
+        }
+
     }
 }
