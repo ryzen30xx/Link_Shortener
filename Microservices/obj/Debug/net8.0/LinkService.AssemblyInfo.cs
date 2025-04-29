@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LinkService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a18772653585801f096984b2910c0ba442ed3b9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5a5dd408c9da427fb0df2e0481f7a4636a7c170")]
 [assembly: System.Reflection.AssemblyProductAttribute("LinkService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LinkService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
