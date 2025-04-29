@@ -69,6 +69,28 @@
           }
         }
       }
+    },
+    "/api/Link/shortened/{code}": {
+      "delete": {
+        "tags": [
+          "Link"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

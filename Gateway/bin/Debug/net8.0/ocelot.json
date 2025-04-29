@@ -35,7 +35,20 @@
             ],
             "UpstreamPathTemplate": "/l/{code}",
             "UpstreamHttpMethod": [ "GET" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/link/shortened/{code}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5000
+                }
+            ],
+            "UpstreamPathTemplate": "/link/shortened/{code}",
+            "UpstreamHttpMethod": [ "DELETE" ]
         }
+
     ],
     "GlobalConfiguration": {
         "BaseUrl": "https://localhost:5001"

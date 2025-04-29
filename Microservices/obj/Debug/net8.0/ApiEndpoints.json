@@ -27,6 +27,22 @@
   },
   {
     "ContainingType": "LinkService.Controllers.LinkController",
+    "Method": "DeleteLinkByShortenedUrl",
+    "RelativePath": "api/Link/shortened/{code}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LinkService.Controllers.LinkController",
     "Method": "RedirectToOriginal",
     "RelativePath": "l/{code}",
     "HttpMethod": "GET",

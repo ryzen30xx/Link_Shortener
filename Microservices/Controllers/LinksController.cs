@@ -68,5 +68,21 @@ namespace LinkService.Controllers
             return Ok(links);
         }
 
+        [HttpDelete("shortened/{code}")]
+        public async Task<IActionResult> DeleteLinkByShortenedUrl(string code)
+        {
+            var link = await _context.Links.FirstOrDefaultAsync(l => l.ShortenedUrl == code);
+            if (link == null)
+            {
+                return NotFound(new { message = "Link not found." });
+            }
+
+            _context.Links.Remove(link);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Link deleted successfully." });
+        }
+
+
     }
 }
